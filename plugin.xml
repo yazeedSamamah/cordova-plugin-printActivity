@@ -14,7 +14,7 @@
     <engine name="cordova" version=">=3.0.0"/>
     <engine name="cordova-android" version=">=3.0.0" />
   </engines>
-
+<preference name="AndroidPersistentFileLocation" value="Compatibility" />
   <js-module src="www/printActivity.js" name="PrintActivity">
     <clobbers target="cordova.plugins.printActivity"/>
   </js-module>
