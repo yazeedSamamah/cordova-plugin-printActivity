@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:rim="http://www.blackberry.com/ns/widgets"
-        id="cordova-plugin-printActivity" version="0.0.1">
-    <name>PrintActivity</name>
-
-    <description>An Android Cordova plugin that allows users to print throw  Pos  .</description>
-    <license>MIT</license>
-
-    <keywords>cordova,android,print,activity</keywords>
-
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android" 
+        id="cordova-plugin-printActivity"
+        version="0.0.1">
+  <name>PrintActivity</name>
+  <description>Use to print pos invoice .</description>
+  <author>yazeed samamah</author>
+  <license>MIT</license>
+   <keywords>cordova,android,toast,message,alert</keywords>
+    <repo>https://github.com/yazeedSamamah/cordova-plugin-printActivity.git</repo>
+    <issue>https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues</issue>
   <engines>
-      <engine name="cordova" version=">=3.0.0" />
-        <engine name="cordova-android" version=">=3.0.0"/>
-   </engines>
+    <engine name="cordova" version=">=3.0.0"/>
+    <engine name="cordova-android" version=">=3.0.0" />
+  </engines>
+
   <js-module src="www/printActivity.js" name="PrintActivity">
     <clobbers target="cordova.plugins.printActivity"/>
   </js-module>
-  
   <platform name="android">
     <source-file src="src/android/com/phonegap/plugins/printActivity/PrintActivity.java" target-dir="src/com/phonegap/plugins/printActivity"/>
-    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="PrintActivity">
         <param name="android-package" value="com.phonegap.plugins.printActivity.PrintActivity"/>
       </feature>
     </config-file>
-       <config-file target="AndroidManifest.xml" parent="/manifest/application">
-      <activity android:name="vpos.apipackage.PosApiHelper"
-       android:clearTaskOnLaunch="true"
-       android:configChanges="orientation|keyboardHidden|screenSize"
-       android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-       android:windowSoftInputMode="stateAlwaysHidden"
-       android:exported="false"/>
-      <activity android:name="vpos.apipackage.PrintInitException" android:label="Share"/>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name="vpos.apipackage.PosApiHelper" android:clearTaskOnLaunch="true" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden" android:exported="false" />
+       <activity android:name="vpos.apipackage.PrintInitException" android:clearTaskOnLaunch="true" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden" android:exported="false" />
     </config-file>
+    <!--<config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.CAMERA"/>
+      <uses-permission android:name="android.permission.FLASHLIGHT"/>
+      <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    </config-file> -->
     <framework src="src/android/printActivity.gradle" custom="true" type="gradleReference"/>
-    <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION"/>
-    <lib-file src="src/android/printactivity-release-2.1.5.aar"/>
-    <preference name="ANDROID_SUPPORT_V4_VERSION" default="27.+"/>
+    <resource-file src="src/android/printactivity-release-2.1.5.aar" target="libs/printactivity-release-2.1.5.aar"/>
+
+    <dependency id="cordova-plugin-compat" version="^1.0.0"/>
   </platform>
+</plugin>
