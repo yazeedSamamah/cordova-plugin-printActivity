@@ -10,7 +10,8 @@
    <keywords>cordova,android,toast,message,alert</keywords>
     <repo>https://github.com/yazeedSamamah/cordova-plugin-printActivity.git</repo>
     <issue>https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues</issue>
-
+    <preference name="APP_ID"  default="default-value"/>
+    <preference name="APP_NAME"  default="default-value" />
   <engines>
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
