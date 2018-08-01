@@ -12,7 +12,7 @@
     <issue>https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues</issue>
 
   <plugin name="cordova-plugin-printActivity" spec="git+https://github.com/yazeedSamamah/cordova-plugin-printActivity.git">
-    
+
     <!-- <variable name="APP_ID" value="cordova-plugin-printActivity"/>
     <variable name="APP_NAME" value="cordova-plugin-printActivity"/> -->
   </plugin>
@@ -39,7 +39,7 @@
       <uses-feature android:name="android.hardware.camera" android:required="true"/>
     </config-file> -->
     <framework src="src/android/printActivity.gradle" custom="true" type="gradleReference"/>
-    <resource-file src="src/android/printactivity-release-2.1.5.aar" target="libs/printactivity-release-2.1.5.aar"/>
+    <resource-file src="src/android/printactivity-release-2.1.5.aar" target="printactivity-release-2.1.5.aar"/>
 
     <dependency id="cordova-plugin-compat" version="^1.0.0"/>
   </platform>
