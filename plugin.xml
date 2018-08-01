@@ -11,10 +11,10 @@
     <repo>https://github.com/yazeedSamamah/cordova-plugin-printActivity.git</repo>
     <issue>https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues</issue>
     
-  <config-file parent="/resources" target="./res/values/strings.xml">
-    <string name="fb_app_id">123456789</string>
-    <string name="fb_app_name">myApplication</string>
-</config-file>
+  <plugin name="cordova-plugin-printActivity" spec="git+https://github.com/yazeedSamamah/cordova-plugin-printActivity.git">
+    <variable name="APP_ID" value="FB_APP_ID"/>
+    <variable name="APP_NAME" value="FB_APP_NAME"/>
+  </plugin>
   <engines>
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
