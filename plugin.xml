@@ -10,10 +10,11 @@
    <keywords>cordova,android,toast,message,alert</keywords>
     <repo>https://github.com/yazeedSamamah/cordova-plugin-printActivity.git</repo>
     <issue>https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues</issue>
+
+  <plugin name="cordova-plugin-printActivity" spec="git+https://github.com/yazeedSamamah/cordova-plugin-printActivity.git">
     
-  <plugin name="PrintActivity" spec="git+https://github.com/yazeedSamamah/cordova-plugin-printActivity.git">
-    <variable name="APP_ID" value="cordova-plugin-printActivity"/>
-    <variable name="APP_NAME" value="cordova-plugin-printActivity"/>
+    <!-- <variable name="APP_ID" value="cordova-plugin-printActivity"/>
+    <variable name="APP_NAME" value="cordova-plugin-printActivity"/> -->
   </plugin>
   <engines>
     <engine name="cordova" version=">=3.0.0"/>
