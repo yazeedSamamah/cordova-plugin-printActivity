@@ -10,12 +10,13 @@
    <keywords>cordova,android,toast,message,alert</keywords>
     <repo>https://github.com/yazeedSamamah/cordova-plugin-printActivity.git</repo>
     <issue>https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues</issue>
-   <plugin name="cordova-plugin-facebook4">
+   <plugin name="cordova-plugin-printActivity">
     <params>
        <param name="APP_ID" value="XXXXXXX" />
        <param name="APP_NAME" value="XXXXXXX" />
     </params>
  </plugin>
+
   <engines>
     <engine name="cordova" version=">=3.0.0"/>
   </engines>
@@ -24,6 +25,7 @@
   </js-module>
   <platform name="android">
     <source-file src="src/android/com/phonegap/plugins/printActivity/PrintActivity.java" target-dir="src/com/phonegap/plugins/printActivity"/>
+     <preference name="android-minSdkVersion" value="15" />
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="PrintActivity">
         <param name="android-package" value="com.phonegap.plugins.printActivity.PrintActivity"/>
