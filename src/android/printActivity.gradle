@@ -6,7 +6,7 @@ repositories{
 }
 
 dependencies {
-   compile(name:'printactivity-release-2.1.5.aar', ext:'aar')
+   compile(name:'printactivity-release-2.1.5', ext:'aar')
 }
 
 android {
