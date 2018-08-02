@@ -120,6 +120,7 @@ public class PrintActivity extends CordovaPlugin {
         printThread.start();
           throw new PrintInitException(1);
            } catch (PrintInitException e) {
+            System.out.println("test"+e);
                Log.e(tag, e.getMessage());
                e.printStackTrace();
            }
