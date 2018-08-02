@@ -8,7 +8,26 @@
       "android"
 
     ]
+  },
+ 
+   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yazeedSamamah/cordova-plugin-printActivity.git"
+  },
+  "keywords": [
+    "print",
+    "cordova-android",
+
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "yazeed samamah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues"
   }
- 
- 
 }
