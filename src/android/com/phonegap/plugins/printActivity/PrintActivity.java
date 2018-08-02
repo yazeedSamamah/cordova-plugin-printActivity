@@ -118,6 +118,7 @@ public class PrintActivity extends CordovaPlugin {
 
         printThread = new Print_Thread(PRINT_TEST);
         printThread.start();
+          throw new PrintInitException("I am Exception Alpha!");
            } catch (PrintInitException e) {
                Log.e(tag, e.getMessage());
                e.printStackTrace();
