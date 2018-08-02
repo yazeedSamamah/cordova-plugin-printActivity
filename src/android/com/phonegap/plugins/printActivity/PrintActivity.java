@@ -109,7 +109,7 @@ public class PrintActivity extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("print")) {
-         //    try {
+            try {
              if (printThread != null && !printThread.isThreadFinished()) {
             Log.e(tag, "Thread is still running...");
             return false;
@@ -117,10 +117,10 @@ public class PrintActivity extends CordovaPlugin {
 
         printThread = new Print_Thread(PRINT_TEST);
         printThread.start();
-       //     } catch (IOException e) {
-              //  Log.e(tag, e.getMessage());
-            //    e.printStackTrace();
-      //      }
+           } catch (IOException e) {
+               Log.e(tag, e.getMessage());
+               e.printStackTrace();
+           }
             return true;
         }
         return false;
