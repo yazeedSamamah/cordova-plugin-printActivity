@@ -1,9 +1,5 @@
 var exec = require('cordova/exec');
 
-var Printer = {
-   print: function(fnSuccess, fnError, str){
-      exec(fnSuccess, fnError, "BluetoothPrinter", "print", [str]);
-   }
+exports.print = function(mac, str, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, 'PrintActivity', 'print', [mac, str]);
 };
-
-module.exports = Printer;
