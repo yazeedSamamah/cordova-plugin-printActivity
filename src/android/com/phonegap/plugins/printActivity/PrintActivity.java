@@ -1,10 +1,10 @@
 package com.phonegap.plugins.printActivity;
 
-import java.io.IOException;
+import java.io.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.io.*;
+
 
 
 import org.apache.cordova.CordovaPlugin;
@@ -118,7 +118,7 @@ public class PrintActivity extends CordovaPlugin {
 
         printThread = new Print_Thread(PRINT_TEST);
         printThread.start();
-           } catch (IOException e) {
+           } catch (Exception e) {
                Log.e(tag, e.getMessage());
                e.printStackTrace();
            }
