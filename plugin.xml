@@ -7,7 +7,7 @@
   <description>Use to print pos invoice .</description>
   <author>yazeed samamah</author>
   <license>MIT</license>
-   <keywords>cordova,android,toast,message,alert</keywords>
+   <keywords>cordova,android,print,message,alert</keywords>
     <repo>https://github.com/yazeedSamamah/cordova-plugin-printActivity.git</repo>
     <issue>https://github.com/yazeedSamamah/cordova-plugin-printActivity/issues</issue>
 
@@ -41,7 +41,7 @@
     <framework src="src/android/printActivity.gradle" custom="true" type="gradleReference"/>
     <resource-file src="src/android/printactivity-release-2.1.5.aar" target="libs"/>
 
-    <dependency id="cordova-plugin-compat" version="^1.0.0"/>
+  
   </platform>
 </plugin>
  
