@@ -117,7 +117,7 @@ public class PrintActivity extends CordovaPlugin {
         printText(callbackContext);
          
            } catch (IOException e) {
-           
+           //test
                Log.e(tag, e.getMessage());
                e.printStackTrace();
            }
