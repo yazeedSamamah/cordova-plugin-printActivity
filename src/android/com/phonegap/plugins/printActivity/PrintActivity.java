@@ -468,7 +468,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintSetFont((byte) 18, (byte) 18, (byte) 0x00);
                         posApiHelper.PrintStr("(MERCHANT NAME):\n");
-                        posApiHelper.PrintStr( args.getString(0).[0] + "\n");
+                        posApiHelper.PrintStr( args.getString(0).branchName + "\n");
                         posApiHelper.PrintStr("商户编号(MERCHANT NO):\n");
                         posApiHelper.PrintStr("    001420183990573\n");
                         posApiHelper.PrintStr("终端编号(TERMINAL NO):00026715\n");
