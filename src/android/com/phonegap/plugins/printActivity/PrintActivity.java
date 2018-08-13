@@ -460,7 +460,7 @@ public class PrintActivity extends CordovaPlugin {
 
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
-                        posApiHelper.PrintSetFont((byte) 25, (byte) 25, (byte) 0x33);
+                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x66);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
                     //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
                       //  posApiHelper.PrintStr("商户存根MERCHANT COPY\n");
