@@ -114,7 +114,7 @@ public class PrintActivity extends CordovaPlugin {
             return false;
         }*/
 
-        printText(callbackContext,args);
+        printText(callbackContext);
          
            } catch (IOException e) {
            //test
@@ -460,47 +460,38 @@ public class PrintActivity extends CordovaPlugin {
 
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
-                        posApiHelper.PrintSetFont((byte) 20, (byte) 20, (byte) 0x00);
+                        posApiHelper.PrintSetFont((byte) 25, (byte) 25, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
                     //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
                       //  posApiHelper.PrintStr("商户存根MERCHANT COPY\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - - - - - - - - - -\n");
+                        posApiHelper.PrintStr("------------------------------\n");
+                        posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintSetFont((byte) 18, (byte) 18, (byte) 0x00);
-                        posApiHelper.PrintStr("(MERCHANT NAME):\n");
-                        posApiHelper.PrintStr( args.getString(0) + "\n");
-                        posApiHelper.PrintStr("商户编号(MERCHANT NO):\n");
-                        posApiHelper.PrintStr("    001420183990573\n");
-                        posApiHelper.PrintStr("终端编号(TERMINAL NO):00026715\n");
-                        posApiHelper.PrintStr("操作员号(OPERATOR NO):12345678\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
-                        //  posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("发卡行(ISSUER):01020001 工商银行\n");
-                        posApiHelper.PrintStr("卡号(CARD NO):\n");
-                        posApiHelper.PrintStr("    9558803602109503920\n");
-                        posApiHelper.PrintStr("收单行(ACQUIRER):03050011民生银行\n");
-                        posApiHelper.PrintStr("交易类型(TXN. TYPE):消费/SALE\n");
-                        posApiHelper.PrintStr("卡有效期(EXP. DATE):2013/08\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
-                        //  posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("批次号(BATCH NO)  :000023\n");
-                        posApiHelper.PrintStr("凭证号(VOUCHER NO):000018\n");
-                        posApiHelper.PrintStr("授权号(AUTH NO)   :987654\n");
-                        posApiHelper.PrintStr("日期/时间(DATE/TIME):\n");
-                        posApiHelper.PrintStr("    2008/01/28 16:46:32\n");
-                        posApiHelper.PrintStr("交易参考号(REF. NO):200801280015\n");
-                        posApiHelper.PrintStr("金额(AMOUNT):  RMB:2.55\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
-                        //  posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("备注/REFERENCE\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
-                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
-                        posApiHelper.PrintStr("持卡人签名(CARDHOLDER SIGNATURE)\n");
+                        posApiHelper.PrintStr("COMPANY NAME :    ");  
+                        posApiHelper.PrintStr( args.getString(0) + "\n");                          
+                        posApiHelper.PrintStr("MERCHANT NAME :   ");
+                        posApiHelper.PrintStr( args.getString(1) + "\n");
+                        posApiHelper.PrintStr("MERCHANT ID :   ");
+                        posApiHelper.PrintStr( args.getString(2) + "\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - - - - - - - - - -\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
+                        posApiHelper.PrintStr("INVOICE NO :    ");
+                        posApiHelper.PrintStr( args.getString(3) + "\n");
+                        posApiHelper.PrintStr("DATE :    ");
+                        posApiHelper.PrintStr( args.getString(4) + "\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintSetFont((byte) 30, (byte) 30, (byte) 0x33);
+                        posApiHelper.PrintStr("TOTAL :    ");
+                        posApiHelper.PrintStr( args.getString(5) + "\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("- - - - CUSTOMER COPY - - -\n");
+                        posApiHelper.PrintStr("عملية مقبولة\n")
                         //  posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("  本人确认以上交易，同意将其计入本卡帐户\n");
-                        posApiHelper.PrintStr("  I ACKNOWLEDGE SATISFACTORY RECEIPT\n");
                         posApiHelper.PrintStr("                                         ");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("                                         ");
