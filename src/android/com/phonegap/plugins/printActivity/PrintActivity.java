@@ -386,7 +386,11 @@ public class PrintActivity extends CordovaPlugin {
             //   Log.e("wbw","m_voltage  = " + m_voltage );
         }
     }
-
+  public static Bitmap decodeBase64(String input)
+  {
+    byte[] decodedBytes = Base64.decode(input, 0);
+    return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+  }
    //This will send data to bluetooth printer
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
@@ -460,6 +464,9 @@ public class PrintActivity extends CordovaPlugin {
 
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
+
+                        Bitmap bmp = decodeBase64(args.getString(6));
+                        ret = PosApiHelper.getInstance().PrintBmp(bmp); 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
                     //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
