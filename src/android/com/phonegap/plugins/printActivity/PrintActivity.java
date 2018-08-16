@@ -16,7 +16,7 @@ import org.apache.cordova.PermissionHelper;
 
 
 
-
+import android.util.Base64 ;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
