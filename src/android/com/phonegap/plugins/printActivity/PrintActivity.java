@@ -460,36 +460,33 @@ public class PrintActivity extends CordovaPlugin {
 
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
-                        posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x00);
+                        posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
                     //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
                       //  posApiHelper.PrintStr("商户存根MERCHANT COPY\n");
                         posApiHelper.PrintStr("------------------------------\n");
+                        posApiHelper.PrintStr("------------------------------\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
-                        posApiHelper.PrintStr("COMPANY NAME :    ");  
-                        posApiHelper.PrintStr( args.getString(0) + "\n");                          
-                        posApiHelper.PrintStr("MERCHANT NAME :   ");
-                        posApiHelper.PrintStr( args.getString(1) + "\n");
-                        posApiHelper.PrintStr("MERCHANT ID :   ");
-                        posApiHelper.PrintStr( args.getString(2) + "\n");
+                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
+                        posApiHelper.PrintStr("COMPANY NAME : "  args.getString(0));                   
+                        posApiHelper.PrintStr("MERCHANT NAME : " args.getString(1) );
+                        posApiHelper.PrintStr("MERCHANT ID : " args.getString(2));
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
-                        posApiHelper.PrintStr("INVOICE NO :    ");
-                        posApiHelper.PrintStr( args.getString(3) + "\n");
-                        posApiHelper.PrintStr("DATE :    ");
-                        posApiHelper.PrintStr( args.getString(4) + "\n");
+                        posApiHelper.PrintStr("INVOICE NO : "  args.getString(3));
+                        posApiHelper.PrintStr("DATE : " args.getString(4));
+                        posApiHelper.PrintStr("TOTAL :" args.getString(5) " JD");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
-                        posApiHelper.PrintStr("TOTAL :    ");
-                        posApiHelper.PrintStr( args.getString(5) + "\n");
+                      
+                        posApiHelper.PrintStr(  + "\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("- - - - CUSTOMER COPY - - -\n");
+                        posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
                         posApiHelper.PrintStr( args.getString(6) + "\n");
                         //  posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("                                         ");
