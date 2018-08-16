@@ -477,7 +477,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
                         posApiHelper.PrintStr("INVOICE NO : " + args.getString(3));
                         posApiHelper.PrintStr("DATE : " + args.getString(4));
-                        posApiHelper.PrintStr("TOTAL :" + args.getString(5) " JD");
+                        posApiHelper.PrintStr("TOTAL :" + args.getString(5) + " JD");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
