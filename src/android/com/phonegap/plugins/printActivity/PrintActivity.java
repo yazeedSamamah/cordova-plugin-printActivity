@@ -15,7 +15,7 @@ import org.apache.cordova.PermissionHelper;
 
 
 
-import android.util.Log ;
+
 import android.util.Base64 ;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -466,7 +466,7 @@ public class PrintActivity extends CordovaPlugin {
 //                        Print.Lib_PrnSetAlign(0);
 
                         Bitmap bmp = decodeBase64(args.getString(6));
-                        Log.d(bmp);
+                        System.out.println(bmp);
                         ret = PosApiHelper.getInstance().PrintBmp(bmp); 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
