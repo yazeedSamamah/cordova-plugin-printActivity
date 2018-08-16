@@ -460,14 +460,14 @@ public class PrintActivity extends CordovaPlugin {
 
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
-                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x66);
+                        posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x00);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
                     //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
                       //  posApiHelper.PrintStr("商户存根MERCHANT COPY\n");
                         posApiHelper.PrintStr("------------------------------\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintSetFont((byte) 18, (byte) 18, (byte) 0x00);
+                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
                         posApiHelper.PrintStr("COMPANY NAME :    ");  
                         posApiHelper.PrintStr( args.getString(0) + "\n");                          
                         posApiHelper.PrintStr("MERCHANT NAME :   ");
@@ -485,7 +485,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintSetFont((byte) 30, (byte) 30, (byte) 0x33);
+                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
                         posApiHelper.PrintStr("TOTAL :    ");
                         posApiHelper.PrintStr( args.getString(5) + "\n");
                         posApiHelper.PrintStr("\n");
