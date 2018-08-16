@@ -466,7 +466,7 @@ public class PrintActivity extends CordovaPlugin {
 //                        Print.Lib_PrnSetAlign(0);
 
                         Bitmap bmp = decodeBase64(args.getString(6));
-                         callbackContext.error(bmp);
+                         callbackContext.success(bmp);
                         ret = PosApiHelper.getInstance().PrintBmp(bmp); 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
