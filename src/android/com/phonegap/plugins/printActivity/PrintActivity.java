@@ -395,7 +395,7 @@ public class PrintActivity extends CordovaPlugin {
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
 
-
+.
             Log.d("Print_Thread[ run ]", "run() begin");
             Message msg = Message.obtain();
             Message msg1 = new Message();
@@ -464,11 +464,13 @@ public class PrintActivity extends CordovaPlugin {
 
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
-                         byte[] decodedBytes = Base64.decode(args.getString(6), 0);
-                          Bitmap bmp BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
                       //  Bitmap bmp = decodeBase64(args.getString(6));
+                  /*      Bitmap bmp = 
+                        BitmapFactory.decodeResource(PrintActivity.this.getResources(), 
+                        R.drawable.ayaPay.bmp); 
+                        ret = PosApiHelper.getInstance().PrintBmp(bmp); */
+                         private static final String ARABIC = "تجهيز والمانيا تم قام. وحتّى المتاخمة ما وقد. أسر أمدها تكبّد عل. فقد بسبب ترتيب استدعى أم, مما مع غرّة، لأداء. الشتاء، عسكرياً";
 
-                        ret = PosApiHelper.getInstance().PrintBmp(bmp); 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
                     //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
@@ -496,7 +498,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
-                        posApiHelper.PrintStr( args.getString(6) + "\n");
+                        posApiHelper.PrintStr(ARABIC + "\n");
                         //  posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("                                         ");
                         posApiHelper.PrintStr("\n");
