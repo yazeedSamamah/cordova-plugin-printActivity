@@ -386,11 +386,11 @@ public class PrintActivity extends CordovaPlugin {
             //   Log.e("wbw","m_voltage  = " + m_voltage );
         }
     }
-  public static Bitmap decodeBase64(String input)
+ /* public static Bitmap decodeBase64(String input)
   {
     byte[] decodedBytes = Base64.decode(input, 0);
     return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-  }
+  }*/
    //This will send data to bluetooth printer
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
@@ -469,7 +469,7 @@ public class PrintActivity extends CordovaPlugin {
                         BitmapFactory.decodeResource(PrintActivity.this.getResources(), 
                         R.drawable.ayaPay.bmp); 
                         ret = PosApiHelper.getInstance().PrintBmp(bmp); */
-                         private static final String ARABIC = "تجهيز والمانيا تم قام. وحتّى المتاخمة ما وقد. أسر أمدها تكبّد عل. فقد بسبب ترتيب استدعى أم, مما مع غرّة، لأداء. الشتاء، عسكرياً";
+                        String str = new String("تعطي يونيكود رقما فريدا لكل حرف".getBytes(), "UTF-8");
 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
@@ -498,7 +498,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
-                        posApiHelper.PrintStr(ARABIC + "\n");
+                        posApiHelper.PrintStr(str + "\n");
                         //  posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("                                         ");
                         posApiHelper.PrintStr("\n");
