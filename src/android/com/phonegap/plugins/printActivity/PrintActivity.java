@@ -395,7 +395,7 @@ public class PrintActivity extends CordovaPlugin {
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
 
-.
+
             Log.d("Print_Thread[ run ]", "run() begin");
             Message msg = Message.obtain();
             Message msg1 = new Message();
