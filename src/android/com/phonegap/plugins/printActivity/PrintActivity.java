@@ -469,7 +469,7 @@ public class PrintActivity extends CordovaPlugin {
                         BitmapFactory.decodeResource(PrintActivity.this.getResources(), 
                         R.drawable.ayaPay.bmp); 
                         ret = PosApiHelper.getInstance().PrintBmp(bmp); */
-                     String arabic = "عربي";
+                     String arabic = "الاردن";
 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
@@ -498,7 +498,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
-                        posApiHelper.PrintStr(new String(arabic.getBytes("UTF-8")) + "\n");
+                        posApiHelper.PrintStr(new String(arabic.getBytes("UTF-8"),"UTF-8") + "\n");
                         //  posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("                                         ");
                         posApiHelper.PrintStr("\n");
