@@ -465,12 +465,12 @@ public class PrintActivity extends CordovaPlugin {
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
                       //  Bitmap bmp = decodeBase64(args.getString(6));
-                  /*      Bitmap bmp = 
+                 /*      Bitmap bmp = 
                         BitmapFactory.decodeResource(PrintActivity.this.getResources(), 
                         R.drawable.ayaPay.bmp); 
-                        ret = PosApiHelper.getInstance().PrintBmp(bmp); */
+                        ret = PosApiHelper.getInstance().PrintBmp(bmp); 
                      String arabic = "الاردن";
-                     
+
 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
@@ -507,10 +507,54 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");*/
 
                    //     SendMsg("Printing... ");
-                        ret = posApiHelper.PrintStart();
+                                   Bitmap bmp = BitmapFactory.decodeResource(PrintActivity.this.getResources(), R.mipmap.metrolinx1bitdepth);
+                        ret = posApiHelper.PrintBmp(bmp);
+                        posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
+                        posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
+                        posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
+                        posApiHelper.PrintStr("韩语:안녕하세요! 긴 시간은 더 볼 수 없습니다!\n");
+                        ret = posApiHelper.PrintBmp(bmp);
+                        posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
+                        posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
+                        posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
+                        posApiHelper.PrintStr("韩语:안녕하세요! 긴 시간은 더 볼 수 없습니다!\n");
+                        ret = posApiHelper.PrintBmp(bmp);
+                        if (ret == 0) {
+                            posApiHelper.PrintStr("\n\n\n");
+                            posApiHelper.PrintStr("                                         \n");
+                            posApiHelper.PrintStr("                                         \n");
+
+                            SendMsg("Printing... ");
+                            ret = posApiHelper.PrintStart();
+
+                            msg1.what = ENABLE_RG;
+                            handler.sendMessage(msg1);
+
+                            Log.d("", "Lib_PrnStart ret = " + ret);
+                            if (ret != 0) {
+                                RESULT_CODE = -1;
+                                Log.e("liuhao", "Lib_PrnStart fail, ret = " + ret);
+                                if (ret == -1) {
+                                    SendMsg("No Print Paper ");
+                                } else if(ret == -2) {
+                                    SendMsg("too hot ");
+                                }else if(ret == -3) {
+                                    SendMsg("low voltage ");
+                                }else{
+                                    SendMsg("Print fail ");
+                                }
+                            } else {
+                                RESULT_CODE = 0;
+                                SendMsg("Print Finish ");
+                            }
+                        } else {
+                            RESULT_CODE = -1;
+                            SendMsg("Lib_PrnBmp Failed");
+                        }
+                    //    ret = posApiHelper.PrintStart();
 
                    //     msg1.what = ENABLE_RG;
                    //     handler.sendMessage(msg1);
