@@ -510,7 +510,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");*/
 
                    //     SendMsg("Printing... ");
-                                                   Bitmap bmp = BitmapFactory.decodeResource(getResources(),R.drawable.large_icon);
+                                                   Bitmap bmp = BitmapFactory.decodeResource(PrintActivity.this.getResources(),R.drawable.large_icon);
                         ret = posApiHelper.PrintBmp(bmp);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
