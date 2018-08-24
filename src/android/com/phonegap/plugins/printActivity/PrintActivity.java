@@ -486,8 +486,7 @@ public class PrintActivity extends CordovaPlugin {
                        int iconId = activityRes.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
                        Bitmap bmp = BitmapFactory.decodeResource(activityRes, iconId);
                       
-                      // posApiHelper.PrintBmp(bmp);
-                       PosApiHelper.getInstance().PrintBmp(bmp);
+                         ret = posApiHelper.PrintBmp(bmp);
 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
@@ -525,22 +524,18 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
+                        if (ret == 0) {
+                            posApiHelper.PrintStr("\n\n\n");
+                            posApiHelper.PrintStr("                                         \n");
+                            posApiHelper.PrintStr("                                         \n");
 
-                   //     SendMsg("Printing... ");mipmap
-                    //fakeR = new FakeR(this);
-                   
-         // Bitmap bmp = BitmapFactory.decodeResource(PrintActivity.this.cordova.getActivity().getResources(), R.mipmap.metrolinx1bitdepth);
-                          // Icon resource
-      
-                    
-                        ret = posApiHelper.PrintStart();
+                          
+                            ret = posApiHelper.PrintStart();
 
-                   //     msg1.what = ENABLE_RG;
-                   //     handler.sendMessage(msg1);
+                          
 
-                        Log.d("", "Lib_PrnStart ret = " + ret);
-
-                        if (ret != 0) {
+                            Log.d("", "Lib_PrnStart ret = " + ret);
+                             if (ret != 0) {
                             RESULT_CODE = -1;
                             Log.e("liuhao", "Lib_PrnStart fail, ret = " + ret);
                             if (ret == -1) {
@@ -556,19 +551,25 @@ public class PrintActivity extends CordovaPlugin {
                                 callbackContext.error("Print fail");
                                 return false;
                             }
+                        } 
+                              
                         } else {
-                            RESULT_CODE = 0;
-                          //  callbackContext.success("Print Finish");
-                         //  return true;
-                         //   SendMsg("Print Finish ");
+                               callbackContext.error("Lib_PrnBmp Failed" + ret);
+                                return false;
+            
                         }
+               
+                    
+                      
+
+
+                      
+
+                     
 
                 
                 m_bThreadFinished = true;
 
-                Log.e(tag, "goToSleep2...");
-          //  }
-      
             callbackContext.success("Data Sent");
             return true;
 
