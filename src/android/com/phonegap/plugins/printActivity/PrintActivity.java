@@ -516,7 +516,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
-                        posApiHelper.PrintStr( new String(arabic.getBytes("WINDOWS-1256"),"WINDOWS-1256" ) + "\n");
+                    //   posApiHelper.PrintStr( new String(arabic.getBytes("WINDOWS-1256"),"WINDOWS-1256" ) + "\n");
                         //  posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("                                         ");
                         posApiHelper.PrintStr("\n");
