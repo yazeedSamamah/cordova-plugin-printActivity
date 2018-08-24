@@ -511,10 +511,8 @@ public class PrintActivity extends CordovaPlugin {
 
                    //     SendMsg("Printing... ");mipmap
                     //fakeR = new FakeR(this);
-                      Activity activity ;
-                   context = activity.getApplicationContext();
-                   packageName = context.getResources();
-          Bitmap bmp = BitmapFactory.decodeResource(packageName, R.mipmap.metrolinx1bitdepth);
+                   
+          Bitmap bmp = BitmapFactory.decodeResource(cordova.getActivity().getResources(), R.mipmap.metrolinx1bitdepth);
                         ret = posApiHelper.PrintBmp(bmp);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
