@@ -82,7 +82,7 @@ public class PrintActivity extends CordovaPlugin {
     private Button btnBmp;
     private final static int ENABLE_RG = 10;
     private final static int DISABLE_RG = 11;
-    private FakeR fakeR;
+    
     TextView textViewMsg = null;
     TextView textViewGray = null;
     int ret = -1;
@@ -511,9 +511,10 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");*/
 
-                   //     SendMsg("Printing... ");
+                   //     SendMsg("Printing... ");mipmap
                     //fakeR = new FakeR(this);
-            Bitmap bmp = BitmapFactory.decodeResource(getResources(), fakeR.getId("mipmap", "metrolinx1bitdepth"));
+                        private FakeR fakeR;
+          Bitmap bmp = BitmapFactory.decodeResource(PrintActivity.this.getResources(), R.mipmap.metrolinx1bitdepth);
                         ret = posApiHelper.PrintBmp(bmp);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
