@@ -48,6 +48,23 @@ import vpos.apipackage.PrintInitException;
 
 import com.setImage.FakeR;
 
+
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
+
+
+
+
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
+import org.json.JSONArray;
+import org.json.JSONException;
 public class PrintActivity extends CordovaPlugin {
 
       public String tag = "PrintActivity";
@@ -512,18 +529,23 @@ public class PrintActivity extends CordovaPlugin {
                    //     SendMsg("Printing... ");mipmap
                     //fakeR = new FakeR(this);
                    
-          Bitmap bmp = BitmapFactory.decodeResource(PrintActivity.this.cordova.getActivity().getResources(), R.mipmap.metrolinx1bitdepth);
-                        ret = posApiHelper.PrintBmp(bmp);
+         // Bitmap bmp = BitmapFactory.decodeResource(PrintActivity.this.cordova.getActivity().getResources(), R.mipmap.metrolinx1bitdepth);
+                          // Icon resource
+        Resources activityRes = cordova.getActivity().getResources();
+        int iconId = activityRes.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
+        Bitmap iconBM = BitmapFactory.decodeResource(activityRes, iconId);
+                      
+                        ret = posApiHelper.PrintBmp(iconBM);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
                         posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
                         posApiHelper.PrintStr("韩语:안녕하세요! 긴 시간은 더 볼 수 없습니다!\n");
-                        ret = posApiHelper.PrintBmp(bmp);
+                        ret = posApiHelper.PrintBmp(iconBM);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
                         posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
                         posApiHelper.PrintStr("韩语:안녕하세요! 긴 시간은 더 볼 수 없습니다!\n");
-                        ret = posApiHelper.PrintBmp(bmp);
+                        ret = posApiHelper.PrintBmp(iconBM);
                         if (ret == 0) {
                             posApiHelper.PrintStr("\n\n\n");
                             posApiHelper.PrintStr("                                         \n");
