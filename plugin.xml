@@ -26,7 +26,8 @@
     <source-file src="src/android/com/phonegap/plugins/printActivity/PrintActivity.java" target-dir="src/android/com/phonegap/plugins/printActivity"/>
         <source-file src="src/android/com/setImage/FakeR.java" target-dir="src/com/setImage" />
         <source-file src="src/android/res/mipmap-xhdpi/metrolinx1bitdepth.bmp" target-dir="res/mipmap-xhdpi"/>
-        <source-file src="src/android/res/drawable/metrolinx1bitdepth.bmp" target-dir="res/drawable"/>
+       
+        <resource-file src="src/android/res/drawable/metrolinx1bitdepth.bmp" target="res/drawable/metrolinx1bitdepth.bmp" />
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="PrintActivity">
         <param name="android-package" value="com.phonegap.plugins.printActivity.PrintActivity"/>
