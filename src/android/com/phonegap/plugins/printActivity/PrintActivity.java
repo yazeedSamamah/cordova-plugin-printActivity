@@ -12,9 +12,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
 import org.apache.cordova.PermissionHelper;
 
-
-
-
+import android.app.Activity;
 import android.content.res.Resources;
 import android.util.Base64 ;
 import android.app.Activity;
@@ -513,8 +511,10 @@ public class PrintActivity extends CordovaPlugin {
 
                    //     SendMsg("Printing... ");mipmap
                     //fakeR = new FakeR(this);
-                       Resources res = context.getResources();  
-          Bitmap bmp = BitmapFactory.decodeResource(res, R.mipmap.metrolinx1bitdepth);
+                      Activity activity ;
+                   context = activity.getApplicationContext();
+                   packageName = context.getResources();
+          Bitmap bmp = BitmapFactory.decodeResource(packageName, R.mipmap.metrolinx1bitdepth);
                         ret = posApiHelper.PrintBmp(bmp);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
