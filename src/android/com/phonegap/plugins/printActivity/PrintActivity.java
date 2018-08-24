@@ -484,10 +484,10 @@ public class PrintActivity extends CordovaPlugin {
                       //  Bitmap bmp = decodeBase64(args.getString(6));
                        Resources activityRes = cordova.getActivity().getResources();
                        int iconId = activityRes.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
-                       Bitmap iconBM = BitmapFactory.decodeResource(activityRes, iconId);
+                       Bitmap bmp = BitmapFactory.decodeResource(activityRes, iconId);
                       
-                        ret = posApiHelper.PrintBmp(iconBM);
-
+                      // posApiHelper.PrintBmp(bmp);
+                       PosApiHelper.getInstance().PrintBmp(bmp);
 
                         posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
