@@ -1,4 +1,5 @@
-package com.setImage;
+package com;
+
 import android.app.Activity;
 import android.content.Context;
 

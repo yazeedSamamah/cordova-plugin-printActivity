@@ -48,7 +48,7 @@ import java.util.Timer;
 import vpos.apipackage.PosApiHelper;
 import vpos.apipackage.PrintInitException;
 
-import com.FakeR;
+import com.setImage.FakeR;
 
 public class PrintActivity extends CordovaPlugin {
 
@@ -512,7 +512,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");*/
 
                    //     SendMsg("Printing... ");
-                        
+                        fakeR = new FakeR(this);
             Bitmap bmp = BitmapFactory.decodeResource(getResources(), fakeR.getId("mipmap", "metrolinx1bitdepth"));
                         ret = posApiHelper.PrintBmp(bmp);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
