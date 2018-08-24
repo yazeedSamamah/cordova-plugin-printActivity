@@ -48,7 +48,9 @@ import java.util.Timer;
 import vpos.apipackage.PosApiHelper;
 import vpos.apipackage.PrintInitException;
 
-import com.setImage.FakeR;
+import com.setImage.*;
+
+import com.setImage;
 
 public class PrintActivity extends CordovaPlugin {
 
