@@ -15,7 +15,7 @@ import org.apache.cordova.PermissionHelper;
 
 
 
-
+import android.content.res.Resources;
 import android.util.Base64 ;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -513,8 +513,8 @@ public class PrintActivity extends CordovaPlugin {
 
                    //     SendMsg("Printing... ");mipmap
                     //fakeR = new FakeR(this);
-                        
-          Bitmap bmp = BitmapFactory.decodeResource(getApplication().getResources(), R.mipmap.metrolinx1bitdepth);
+                       Resources res = context.getResources();  
+          Bitmap bmp = BitmapFactory.decodeResource(res, R.mipmap.metrolinx1bitdepth);
                         ret = posApiHelper.PrintBmp(bmp);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
