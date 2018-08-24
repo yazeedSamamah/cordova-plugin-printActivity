@@ -40,6 +40,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.R;
 
 import com.google.zxing.BarcodeFormat;
 
