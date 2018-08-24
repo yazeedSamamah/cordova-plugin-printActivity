@@ -533,7 +533,7 @@ public class PrintActivity extends CordovaPlugin {
                           // Icon resource
       
                     
-                    //    ret = posApiHelper.PrintStart();
+                        ret = posApiHelper.PrintStart();
 
                    //     msg1.what = ENABLE_RG;
                    //     handler.sendMessage(msg1);
