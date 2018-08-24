@@ -1,4 +1,4 @@
-package com.synconset;
+package com;
 
 import android.app.Activity;
 import android.content.Context;
