@@ -483,7 +483,7 @@ public class PrintActivity extends CordovaPlugin {
 //                        Print.Lib_PrnSetAlign(0);
                       //  Bitmap bmp = decodeBase64(args.getString(6));
                       
-                       Resources activityRes =  cordova.getActivity().getResources();
+                  /*     Resources activityRes =  cordova.getActivity().getResources();
                        int iconId = activityRes.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
                        Bitmap bmp = BitmapFactory.decodeResource(activityRes, iconId);
                           ret = posApiHelper.PrintBmp(bmp);
@@ -507,14 +507,28 @@ public class PrintActivity extends CordovaPlugin {
                      /*    if(ret != 0){
                              callbackContext.error("Lib_PrnBmp Failed" + ret);
                                 return false;  
-                         }*/
+                         }
+
+                         int resourceID = cordova.getActivity().getResources().getIdentifier("metrolinx1bitdepth", "drawable",cordova.getActivity().getPackageName());
+                         Bitmap bbicon =  BitmapFactory.decodeResource(cordova.getActivity().getResources(),resourceID);
+                           ret = posApiHelper.PrintBmp(bbicon);
+                           if(ret != 0){
                             callbackContext.error("Lib_PrnBmp Failed" + ret);
                                 return false;  
+                           }
+                            
                           }
                                
 
                             }
-                          }
+                          }*/
+
+        String base64String = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAFH0lEQVR4Xu2d/1HbQBCFHxWEDkIHIRUAHUAF0AHQAVRA6IBUAB0AHUAFIR2QCpLZYDMeI+OVV6s7SZ9m+CdZ3Y+3n5725JO9JY5JK7A16dkzeQHAxCEAAACYuAITnz4OAAATV2Di08cBAGDiCkx8+jgAAKxVYEfS17VRmwc8bn7qKM7cS5zFb0kvn7W/ygG2JZ1KOpS0mzhAa3rqLvQ3Wd8nSXeSriW9LvfVJP6JpCtJBkEfBwD0ofJb8s8l3Sx2tyy+Jf6sn/G89wIA/Qp+Iely3uWi+JZ4A6DvAwD6VvzNCX4s3n/3Jd33P47/PQJAGeEPJD3Mxf8lyar9EgcAlFBdsuLwu4lvlf5tmTHgAJKyVwGfpfbIALCq8BgAiilQEoCfBsCDpMyHEeuU5RawTqG8/3808UsSSBFYWP82ADwnPSMwB5ryYSuwrg9b4n3zNNoGAHtmnzFYzziJaaeA+7YOAO2EHUo0AAwlU0njBIAkYYfSLAAMJVNJ4wSAJGGH0iwADCVTSeMEgCRhh9IsAAwlU0njBIAkYYfSbHEA3ANYsSGk6fxVTyKjn2U0fRjVpv8mKPqcf6j/rCeBfQoAAB8RcOsPAM1b0nCABl9p82GQm0BuAY17InsDEAfAAdwbQnAA/8fhfTogRWBwbcYqwCkgDoADuHcE9WmBLANZBjo9rDls8rcA76ZMe5PE++IoDuDfap8BoG0Kdb3Wn7UnHwDKAuC2RAAY53MAAHArAAAtpPKHcgvgFuB+3zBaBLEM9F+YHyKpAbgFBPBZfSq3AG4B3AKcl1b0Fujsxv8ULNTg7GQcAAfAAZxXEg7QIFSbHTGsApykNYWxCmAVEMCHVcAqBfqsgUIJxAFwgBBANVwB1ACBFOIAOEAAH2qAGhwwlEAcAAcIAVTDFUANEEghDoADBPChBqjBAUMJxAFwgBBANVwB1ACBFOIAOEAAH2qAGhwwlEAcAAcIAVTDFUANEEghDoADBPChBqjBAUMJxAFwgBBANVwB1ACBFOIAOEAAH2qAGhwwlEAcAAcIAVTDFUANEEghDoADBPChBqjBAUMJxAFwgBBANVwB1ACBFOIAOEAAH2qAGhwwlEAcAAfQvROhZ74qtsovy25Kn31V7DdPXvnFkHE6gPv1dAAAAH4ypsEq23xFTZPTuq/ADn40K9Q/DoAD4AA4gKdclPjNIH4zqMplEI+CP17A7hqEGoAagBqAGoAaYFkBloENTLQpAn1IEZWlQPEaIGtitOtTAAB8Oo02CgBGm1rfxADAp9NoowBgtKn1TQwAfDqNNgoARpta38QAwKfTaKMAYLSp9U0sBYCnFptCfcN8i7InjFM+9hImb5tCdz3ttvk00NPeJjFZW9M3GUuJc6IfZ4fGbOK77SLU0+qTASBJWEezjyb+jaRjR3BWCABkKbu+3WsT/1DS7frYtAgASJN2bcNHc/GtwHO9SbK2yfYBANBesy7OsDe9dufi70vuV8S66HyxDQDoWlFfewdW/y2Kfybpyndup1EA0KmcrsbOJdlSUcvi2z+euproLggAutPS09KlpIt5YJP4JzM6vnha6yAGADoQ0dHEn9mDPFv1vR+rxN+eBdsKIbs4BABH9gIhVuzdzS7q1+V2POLvSLK/rMMeRE35sAI863iRZH8rDw8AWYOj3QoUAIAKklByCABQUv0K+gaACpJQcggAUFL9CvoGgAqSUHIIAFBS/Qr6BoAKklByCABQUv0K+gaACpJQcgj/AGXkCVGS+TPzAAAAAElFTkSuQmCC";
+        String base64Image = base64String.split(",")[1];
+        
+        byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
+        Bitmap bmp = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+          ret = posApiHelper.PrintBmp(bmp);
                       if (ret == 0) {
                             posApiHelper.PrintStr("\n\n\n");
                             posApiHelper.PrintStr("                                         \n");
@@ -523,7 +537,7 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
                         posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
                         posApiHelper.PrintStr("韩语:안녕하세요! 긴 시간은 더 볼 수 없습니다!\n");
-                       
+                        posApiHelper.PrintBmp(bmp);
                         posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
                         posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
                         posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
