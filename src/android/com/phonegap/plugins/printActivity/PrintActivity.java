@@ -489,7 +489,7 @@ public class PrintActivity extends CordovaPlugin {
                           ret = posApiHelper.PrintBmp(bmp);
                           if (ret != 0){
                              Resources activityRess =  cordova.getActivity().getApplicationContext().getResources();
-                               int iconIdd = activityRess.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getApplicationContext().getResources());
+                              int iconIdd = activityRess.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
                   Bitmap bmpm  = BitmapFactory.decodeResource(activityRess,iconIdd);
                         //     callbackContext.error("Lib_PrnBmp Failed  " + bmp);
                             //    return false; 
@@ -502,13 +502,14 @@ public class PrintActivity extends CordovaPlugin {
                           ret = posApiHelper.PrintBmp(bmpmm);
 
                           if(ret != 0){
-                      Bitmap bmpmmm  =  BitmapFactory.decodeResource(cordova.getActivity().getApplicationContext().getResources(),R.drawable.metrolinx1bitdepth);
-                         ret = posApiHelper.PrintBmp(bmpmmm);
-                         if(ret != 0){
+                //      Bitmap bmpmmm  =  BitmapFactory.decodeResource(cordova.getActivity().getApplicationContext().getResources(),R.drawable.metrolinx1bitdepth);
+                 //        ret = posApiHelper.PrintBmp(bmpmmm);
+                     /*    if(ret != 0){
                              callbackContext.error("Lib_PrnBmp Failed" + ret);
                                 return false;  
-                         }
-                           
+                         }*/
+                            callbackContext.error("Lib_PrnBmp Failed" + ret);
+                                return false;  
                           }
                                
 
