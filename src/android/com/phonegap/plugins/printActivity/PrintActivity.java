@@ -482,25 +482,33 @@ public class PrintActivity extends CordovaPlugin {
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
                       //  Bitmap bmp = decodeBase64(args.getString(6));
-
+                      
                        Resources activityRes =  cordova.getActivity().getResources();
                        int iconId = activityRes.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
                        Bitmap bmp = BitmapFactory.decodeResource(activityRes, iconId);
                           ret = posApiHelper.PrintBmp(bmp);
                           if (ret != 0){
                              Resources activityRess =  cordova.getActivity().getApplicationContext().getResources();
-                  Bitmap bmpm  = BitmapFactory.decodeResource(activityRess,iconId);
+                               int iconIdd = activityRess.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getApplicationContext().getResources(););
+                  Bitmap bmpm  = BitmapFactory.decodeResource(activityRess,iconIdd);
                         //     callbackContext.error("Lib_PrnBmp Failed  " + bmp);
                             //    return false; 
                    //   Bitmap bmpt = BitmapFactory.decodeResource(activityRes, R.mipmap.metrolinx1bitdepth);
                         ret = posApiHelper.PrintBmp(bmpm);
                             if(ret != 0){
-                         Bitmap bmpmm  =  BitmapFactory.decodeResource(activityRess, R.mipmap.metrolinx1bitdepth);
+                                Resources activityResss = PrintActivity.this.cordova.getActivity().getResources();        
+                                 int iconIddd = activityResss.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());      
+                         Bitmap bmpmm  =  BitmapFactory.decodeResource(activityResss, iconIddd);
                           ret = posApiHelper.PrintBmp(bmpmm);
 
                           if(ret != 0){
-                            callbackContext.error("Lib_PrnBmp Failed" + ret);
+                      Bitmap bmpmmm  =  BitmapFactory.decodeResource(cordova.getActivity().getApplicationContext().getResources(), R.mipmap.metrolinx1bitdepth);
+                         ret = posApiHelper.PrintBmp(bmpmmm);
+                         if(ret != 0){
+                             callbackContext.error("Lib_PrnBmp Failed" + ret);
                                 return false;  
+                         }
+                           
                           }
                                
 
@@ -510,7 +518,15 @@ public class PrintActivity extends CordovaPlugin {
                             posApiHelper.PrintStr("\n\n\n");
                             posApiHelper.PrintStr("                                         \n");
                             posApiHelper.PrintStr("                                         \n");
-
+                        posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
+                        posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
+                        posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
+                        posApiHelper.PrintStr("韩语:안녕하세요! 긴 시간은 더 볼 수 없습니다!\n");
+                       
+                        posApiHelper.PrintStr("法语:Bonjour! Ça fait longtemps!\n");
+                        posApiHelper.PrintStr("日语:こんにちは！久しぶり！\n");
+                        posApiHelper.PrintStr("俄语:Привет! Давно не виделись!\n");
+                        posApiHelper.PrintStr("韩语:안녕하세요! 긴 시간은 더 볼 수 없습니다!\n");
                           
                             ret = posApiHelper.PrintStart();
 
