@@ -482,13 +482,15 @@ public class PrintActivity extends CordovaPlugin {
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
                       //  Bitmap bmp = decodeBase64(args.getString(6));
-                       Resources activityRes =  cordova.getActivity().getResources();
+                       Resources activityRes =  PrintActivity.this.cordova.getActivity().getResources();
                        int iconId = activityRes.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
                        Bitmap bmp = BitmapFactory.decodeResource(activityRes, iconId);
                           ret = posApiHelper.PrintBmp(bmp);
                           if (ret != 0){
-                      Bitmap bmpt = BitmapFactory.decodeResource(activityRes, R.mipmap.metrolinx1bitdepth);
-                        ret = posApiHelper.PrintBmp(bmpt);
+                             callbackContext.error("Lib_PrnBmp Failed  " + bmp);
+                                return false; 
+                   //   Bitmap bmpt = BitmapFactory.decodeResource(activityRes, R.mipmap.metrolinx1bitdepth);
+                      //  ret = posApiHelper.PrintBmp(bmpt);
 
                           }
                       if (ret == 0) {
