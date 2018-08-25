@@ -487,9 +487,9 @@ public class PrintActivity extends CordovaPlugin {
                        Bitmap bmp = BitmapFactory.decodeResource(activityRes, iconId);
                           ret = posApiHelper.PrintBmp(bmp);
                           if (ret != 0){
-                      Bitmap bmp = BitmapFactory.decodeResource(activityRes, R.mipmap.metrolinx1bitdepth);
-                        ret = posApiHelper.PrintBmp(bmp);
-                   
+                      Bitmap bmpt = BitmapFactory.decodeResource(activityRes, R.mipmap.metrolinx1bitdepth);
+                        ret = posApiHelper.PrintBmp(bmpt);
+
                           }
                       if (ret == 0) {
                             posApiHelper.PrintStr("\n\n\n");
