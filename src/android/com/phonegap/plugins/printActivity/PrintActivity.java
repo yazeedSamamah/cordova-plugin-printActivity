@@ -482,49 +482,16 @@ public class PrintActivity extends CordovaPlugin {
                         //0 left，1 Ringht ，2 middle
 //                        Print.Lib_PrnSetAlign(0);
                       //  Bitmap bmp = decodeBase64(args.getString(6));
-                       Resources activityRes = cordova.getActivity().getResources();
+                       Resources activityRes =  PrintActivity.this.cordova.getActivity().getResources();
                        int iconId = activityRes.getIdentifier("metrolinx1bitdepth", "drawable", cordova.getActivity().getPackageName());
                        Bitmap bmp = BitmapFactory.decodeResource(activityRes, iconId);
-                      
-                        ret = PosApiHelper.getInstance().PrintBmp(bmp); 
-
-                        posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
-                        posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
-                    //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
-                      //  posApiHelper.PrintStr("商户存根MERCHANT COPY\n");
-                        posApiHelper.PrintStr("------------------------------\n");
-                        posApiHelper.PrintStr("------------------------------\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
-                        posApiHelper.PrintStr("COMPANY NAME : " +  args.getString(0));                   
-                        posApiHelper.PrintStr("MERCHANT NAME : " + args.getString(1) );
-                        posApiHelper.PrintStr("MERCHANT ID : " + args.getString(2));
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
-                        posApiHelper.PrintStr("INVOICE NO : " + args.getString(3));
-                        posApiHelper.PrintStr("DATE : " + args.getString(4));
-                        posApiHelper.PrintStr("TOTAL :" + args.getString(5) + " JD");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
-                      
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
-                    //   posApiHelper.PrintStr( new String(arabic.getBytes("WINDOWS-1256"),"WINDOWS-1256" ) + "\n");
-                        //  posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("                                         ");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("                                         ");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        if (ret == 0) {
+                          ret = posApiHelper.PrintBmp(bmp);
+                          if (ret != 0){
+                      Bitmap bmp = BitmapFactory.decodeResource(activityRes, R.mipmap.metrolinx1bitdepth);
+                        ret = posApiHelper.PrintBmp(bmp);
+                   
+                          }
+                      if (ret == 0) {
                             posApiHelper.PrintStr("\n\n\n");
                             posApiHelper.PrintStr("                                         \n");
                             posApiHelper.PrintStr("                                         \n");
@@ -558,6 +525,45 @@ public class PrintActivity extends CordovaPlugin {
                                 return false;
             
                         }
+                  
+
+                        posApiHelper.PrintSetFont((byte) 24, (byte) 24, (byte) 0x33);
+                        posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
+                    //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
+                      //  posApiHelper.PrintStr("商户存根MERCHANT COPY\n");
+                        posApiHelper.PrintStr("------------------------------\n");
+                        posApiHelper.PrintStr("------------------------------\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
+                        posApiHelper.PrintStr("COMPANY NAME : " +  args.getString(0));                   
+                        posApiHelper.PrintStr("MERCHANT NAME : " + args.getString(1) );
+                        posApiHelper.PrintStr("MERCHANT ID : " + args.getString(2));
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
+                        posApiHelper.PrintStr("INVOICE NO : " + args.getString(3));
+                        posApiHelper.PrintStr("DATE : " + args.getString(4));
+                        posApiHelper.PrintStr("TOTAL :" + args.getString(5) + " JD");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
+               
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
+                    //   posApiHelper.PrintStr( new String(arabic.getBytes("WINDOWS-1256"),"WINDOWS-1256" ) + "\n");
+                        //  posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("                                         ");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("                                         ");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
+                       
                
                     
                       
