@@ -469,14 +469,10 @@ public class PrintActivity extends CordovaPlugin {
         
         byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
         Bitmap bmp = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-         ret = posApiHelper.PrintBmp(bmp);
-                      if (ret == 0) {
-                                                  posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
+
+                      
                         posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
-                    //    posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x00);
-                      //  posApiHelper.PrintStr("商户存根MERCHANT COPY\n");
-                        posApiHelper.PrintStr("------------------------------\n");
-                        posApiHelper.PrintStr("------------------------------\n");
+                        posApiHelper.PrintStr("- -  - -  - -\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
@@ -485,22 +481,14 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("MERCHANT ID : " + args.getString(2));
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("- - - - - - - - - - - - - - - -\n");
+                        posApiHelper.PrintStr("- -  - -  - -\n");
                         posApiHelper.PrintStr("INVOICE NO : " + args.getString(3));
                         posApiHelper.PrintStr("DATE : " + args.getString(4));
+                        posApiHelper.PrintStr("TIME : " + args.getString(6));
                         posApiHelper.PrintStr("TOTAL :" + args.getString(5) +  " JD");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintSetFont((byte) 16, (byte) 16, (byte) 0x33);
-               
-                        posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("- -  CUSTOMER COPY  - -\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
-                       
                         posApiHelper.PrintBmp(bmp);
 
                           
@@ -527,11 +515,7 @@ public class PrintActivity extends CordovaPlugin {
                             }
                         } 
                               
-                        } else {
-                               callbackContext.error("Lib_PrnBmp Failed" + ret);
-                                return false;
-            
-                        }
+                      
                   
 
 
