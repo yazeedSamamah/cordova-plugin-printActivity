@@ -477,7 +477,6 @@ public class PrintActivity extends CordovaPlugin {
         Bitmap bmap = BitmapFactory.decodeByteArray(decodedStringInvoice, 0, decodedStringInvoice.length);   
                        
                         posApiHelper.PrintBmp(bmap);
-                        posApiHelper.PrintStr("AYA PAY POS SALES SLIP\n");
                         posApiHelper.PrintStr("- -  - -  - -\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("\n");
@@ -495,8 +494,9 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintStr("- -" + args.getString(8) + "- -\n");
                         posApiHelper.PrintStr("\n");
-                        posApiHelper.PrintStr("\n");
                         posApiHelper.PrintBmp(bmp);
+                        posApiHelper.PrintStr("\n");
+                        
 
                           
                             ret = posApiHelper.PrintStart();
