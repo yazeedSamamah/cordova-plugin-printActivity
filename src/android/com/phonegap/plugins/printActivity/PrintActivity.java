@@ -495,9 +495,11 @@ public class PrintActivity extends CordovaPlugin {
                         posApiHelper.PrintStr("- -" + args.getString(8) + "- -\n");
                         posApiHelper.PrintStr("\n");
                         posApiHelper.PrintBmp(bmp);
+                        posApiHelper.PrintStr("");
+                        posApiHelper.PrintStr("");
                         posApiHelper.PrintStr("\n");
-                        
-
+                        posApiHelper.PrintStr("\n");
+                        posApiHelper.PrintStr("\n");
                           
                             ret = posApiHelper.PrintStart();
 
