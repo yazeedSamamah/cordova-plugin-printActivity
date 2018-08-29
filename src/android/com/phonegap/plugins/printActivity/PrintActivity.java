@@ -124,7 +124,7 @@ public class PrintActivity extends CordovaPlugin {
 
 
    
-   int readNfcCard(){
+   /*int readNfcCard(){
         Log.e("nfc", "heyp nfc Picc_Open start!");
         byte[] NfcData_Len = new byte[5];
         byte[] Technology = new byte[25];
@@ -160,7 +160,7 @@ public class PrintActivity extends CordovaPlugin {
 
         }
         return ret;
-    }
+    }*/
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
                 try {
@@ -184,21 +184,21 @@ public class PrintActivity extends CordovaPlugin {
                     RESULT_CODE = -1;
                     Log.e(tag, "Lib_PrnCheckStatus fail, ret = " + ret);
                   //  SendMsg("Error, No Paper ");
-                    m_bThreadFinished = true;
+                  //  m_bThreadFinished = true;
                     callbackContext.error( "Lib_PrnCheckStatus fail, ret = " + ret);
                     return false;
                 } else if (ret == -2) {
                     RESULT_CODE = -1;
                     Log.e(tag, "Lib_PrnCheckStatus fail, ret = " + ret);
                  //   SendMsg("Error, Printer Too Hot ");
-                    m_bThreadFinished = true;
+                 //   m_bThreadFinished = true;
                     callbackContext.error("Lib_PrnCheckStatus fail, ret = " + ret);
                     return false;
                 } else if (ret == -3) {
                     RESULT_CODE = -1;
                     Log.e(tag, "voltage = " + (BatteryV * 2));
                   //  SendMsg("Battery less :" + (BatteryV * 2));
-                    m_bThreadFinished = true;
+                 //   m_bThreadFinished = true;
                     callbackContext.error("Battery low" );
                     return false;
                 }
