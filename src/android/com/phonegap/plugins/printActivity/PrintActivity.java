@@ -86,7 +86,7 @@ public class PrintActivity extends CordovaPlugin {
     SharedPreferences preferences;
     SharedPreferences sp;
     SharedPreferences.Editor editor;
-    private RadioButton rb_high;
+  /*  private RadioButton rb_high;
     private RadioButton rb_middle;
     private RadioButton rb_low;
     private RadioButton radioButton_4;
@@ -96,7 +96,7 @@ public class PrintActivity extends CordovaPlugin {
     private Button gb_barcode;
     private Button btnBmp;
     private final static int ENABLE_RG = 10;
-    private final static int DISABLE_RG = 11;
+    private final static int DISABLE_RG = 11;*/
     
     TextView textViewMsg = null;
     TextView textViewGray = null;
@@ -156,18 +156,18 @@ public class PrintActivity extends CordovaPlugin {
   
    
  
-    public void QuitHandler() {
+  /*  public void QuitHandler() {
         is_cycle = false;
         gb_test.setEnabled(true);
         gb_barcode.setEnabled(true);
         btnBmp.setEnabled(true);
         gb_unicode.setEnabled(true);
         handlers.removeCallbacks(runnable);
-    }
+    }*/
 
 
     Handler handlers = new Handler();
-    Runnable runnable = new Runnable() {
+   /* Runnable runnable = new Runnable() {
 
         @Override
         public void run() {
@@ -189,15 +189,16 @@ public class PrintActivity extends CordovaPlugin {
 
         }
     };
+*/
 
-    Print_Thread printThread = null;
+ //   Print_Thread printThread = null;
 
 
 
 
   
 
-    private Handler handler = new Handler() {
+   /* private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
 
@@ -228,7 +229,7 @@ public class PrintActivity extends CordovaPlugin {
                     break;
             }
         }
-    };
+    };*/
 
     public class BatteryReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
