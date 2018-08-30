@@ -86,28 +86,18 @@ public class PrintActivity extends CordovaPlugin {
     SharedPreferences preferences;
     SharedPreferences sp;
     SharedPreferences.Editor editor;
-  /*  private RadioButton rb_high;
-    private RadioButton rb_middle;
-    private RadioButton rb_low;
-    private RadioButton radioButton_4;
-    private RadioButton radioButton_5;
-    private Button gb_test;
-    private Button gb_unicode;
-    private Button gb_barcode;
-    private Button btnBmp;
-    private final static int ENABLE_RG = 10;
-    private final static int DISABLE_RG = 11;*/
+
     
-    TextView textViewMsg = null;
-    TextView textViewGray = null;
+   // TextView textViewMsg = null;
+   // TextView textViewGray = null;
     int ret = -1;
     private boolean m_bThreadFinished = true;
 
-    private boolean is_cycle = false;
-    private int cycle_num = 0;
+   // private boolean is_cycle = false;
+  ///  private int cycle_num = 0;
 
     private int RESULT_CODE = 0;
-    private static final String DISABLE_FUNCTION_LAUNCH_ACTION = "android.intent.action.DISABLE_FUNCTION_LAUNCH";
+   // private static final String DISABLE_FUNCTION_LAUNCH_ACTION = "android.intent.action.DISABLE_FUNCTION_LAUNCH";
 
 
 
@@ -126,7 +116,7 @@ public class PrintActivity extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("print")) {
             try {
-           /*  if (printThread != null && !printThread.isThreadFinished()) {
+      /*if (printThread != null && !printThread.isThreadFinished()) {
             Log.e(tag, "Thread is still running...");
             return false;
         }*/
@@ -155,81 +145,11 @@ public class PrintActivity extends CordovaPlugin {
 
   
    
- 
-  /*  public void QuitHandler() {
-        is_cycle = false;
-        gb_test.setEnabled(true);
-        gb_barcode.setEnabled(true);
-        btnBmp.setEnabled(true);
-        gb_unicode.setEnabled(true);
-        handlers.removeCallbacks(runnable);
-    }*/
+
 
 
     Handler handlers = new Handler();
-   /* Runnable runnable = new Runnable() {
-
-        @Override
-        public void run() {
-            // TODO Auto-generated method stub
-
-            Log.e(tag, "TIMER log...");
-            printThread = new Print_Thread(PRINT_UNICODE);
-            printThread.start();
-
-            Log.e(tag, "TIMER log2...");
-            if (RESULT_CODE == 0) {
-                editor = preferences.edit();
-                editor.putInt("count", ++cycle_num);
-                editor.commit();
-                Log.e(tag, "cycle num=" + cycle_num);
-                SendMsg("cycle num =" + cycle_num);
-            }
-            handlers.postDelayed(this, 9000);
-
-        }
-    };
-*/
-
- //   Print_Thread printThread = null;
-
-
-
-
   
-
-   /* private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-
-            switch (msg.what) {
-                case DISABLE_RG:
-                    IsWorking = 1;
-                    rb_high.setEnabled(false);
-                    rb_middle.setEnabled(false);
-                    rb_low.setEnabled(false);
-                    radioButton_4.setEnabled(false);
-                    radioButton_5.setEnabled(false);
-                    break;
-
-                case ENABLE_RG:
-                    IsWorking = 0;
-                    rb_high.setEnabled(true);
-                    rb_middle.setEnabled(true);
-                    rb_low.setEnabled(true);
-                    radioButton_4.setEnabled(true);
-                    radioButton_5.setEnabled(true);
-
-                    break;
-                default:
-                    Bundle b = msg.getData();
-                    String strInfo = b.getString("MSG");
-                    textViewMsg.setText(strInfo);
-
-                    break;
-            }
-        }
-    };*/
 
     public class BatteryReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
@@ -250,6 +170,7 @@ public class PrintActivity extends CordovaPlugin {
    //This will send data to bluetooth printer
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
+              m_bThreadFinished = false;
                 try {
                     ret = posApiHelper.PrintInit();
                 } catch (PrintInitException e) {
@@ -259,13 +180,7 @@ public class PrintActivity extends CordovaPlugin {
                     callbackContext.error(initRet);
                     return false;
                 }
-
-
-
                 posApiHelper.PrintSetGray(ret);
-
-              
-
                 ret = posApiHelper.PrintCheckStatus();
                 if (ret == -1) {
                     RESULT_CODE = -1;
@@ -366,23 +281,8 @@ public class PrintActivity extends CordovaPlugin {
                                 return false;
                             }
                         } 
-                              
-                      
-                  
-
-
-               
-                    
-                      
-
-
-                      
-
-                     
-
-                
-               
-
+                                             
+            m_bThreadFinished = true;
             callbackContext.success("print  success");
             return true;
 
