@@ -68,10 +68,52 @@ import org.json.JSONException;
 public class PrintActivity extends CordovaPlugin {
 
       public String tag = "PrintActivity";
-   
-   
+    final int PRINT_TEST = 0;
+    final int PRINT_UNICODE = 1;
+    final int PRINT_BMP = 2;
+    final int PRINT_BARCODE = 4;
+    final int PRINT_CYCLE = 5;
+    final int PRINT_LONGER = 7;
+    final int PRINT_OPEN = 8;
+
+    private RadioGroup rg = null;
+    private Timer timer;
+    private Timer timer2;
+    private BroadcastReceiver receiver;
+    private IntentFilter filter;
+    private int voltage_level;
+    private int BatteryV;
+    SharedPreferences preferences;
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
+    private RadioButton rb_high;
+    private RadioButton rb_middle;
+    private RadioButton rb_low;
+    private RadioButton radioButton_4;
+    private RadioButton radioButton_5;
+    private Button gb_test;
+    private Button gb_unicode;
+    private Button gb_barcode;
+    private Button btnBmp;
+    private final static int ENABLE_RG = 10;
+    private final static int DISABLE_RG = 11;
     
-    
+    TextView textViewMsg = null;
+    TextView textViewGray = null;
+    int ret = -1;
+    private boolean m_bThreadFinished = true;
+
+    private boolean is_cycle = false;
+    private int cycle_num = 0;
+
+    private int RESULT_CODE = 0;
+    private static final String DISABLE_FUNCTION_LAUNCH_ACTION = "android.intent.action.DISABLE_FUNCTION_LAUNCH";
+
+
+
+
+
+
 
 
     /**
@@ -114,53 +156,97 @@ public class PrintActivity extends CordovaPlugin {
   
    
  
-   
+    public void QuitHandler() {
+        is_cycle = false;
+        gb_test.setEnabled(true);
+        gb_barcode.setEnabled(true);
+        btnBmp.setEnabled(true);
+        gb_unicode.setEnabled(true);
+        handlers.removeCallbacks(runnable);
+    }
 
 
-   
+    Handler handlers = new Handler();
+    Runnable runnable = new Runnable() {
 
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
 
+            Log.e(tag, "TIMER log...");
+            printThread = new Print_Thread(PRINT_UNICODE);
+            printThread.start();
 
-
-
-   
-   /*int readNfcCard(){
-        Log.e("nfc", "heyp nfc Picc_Open start!");
-        byte[] NfcData_Len = new byte[5];
-        byte[] Technology = new byte[25];
-        byte[] NFC_UID = new byte[56];
-        byte[] NDEF_message = new byte[500];
-
-        int ret = posApiHelper.PiccNfc( NfcData_Len, Technology, NFC_UID, NDEF_message);
-
-        int TechnologyLength = NfcData_Len[0] & 0xFF;
-        int NFC_UID_length = NfcData_Len[1] & 0xFF;
-        int NDEF_message_length = (NfcData_Len[3] & 0xFF) + (NfcData_Len[4] & 0xFF);
-        byte[] NDEF_message_data = new byte[NDEF_message_length];
-        byte[] NFC_UID_data = new byte[NFC_UID_length];
-        System.arraycopy(NFC_UID, 0, NFC_UID_data, 0, NFC_UID_length);
-        System.arraycopy(NDEF_message, 0, NDEF_message_data, 0, NDEF_message_length);
-        String NDEF_message_data_str = new String(NDEF_message_data);
-        String NDEF_str = null;
-        if (!TextUtils.isEmpty(NDEF_message_data_str)) {
-            NDEF_str = NDEF_message_data_str.substring(NDEF_message_data_str.indexOf("en")+2,NDEF_message_data_str.length());
-        }
-
-        if (ret == 0) {
-            posApiHelper.SysBeep();
-            //successCount ++;
-            if (!TextUtils.isEmpty(NDEF_str)) {
-                textViewMsg.setText("TYPE: " + new String(Technology).substring(0, TechnologyLength) + "\n"
-                        + "UID: " + ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length) + "\n"
-                        + NDEF_str);
-            }else{
-                textViewMsg.setText("TYPE: " + new String(Technology).substring(0, TechnologyLength) + "\n"
-                        + "UID: " + ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length));
+            Log.e(tag, "TIMER log2...");
+            if (RESULT_CODE == 0) {
+                editor = preferences.edit();
+                editor.putInt("count", ++cycle_num);
+                editor.commit();
+                Log.e(tag, "cycle num=" + cycle_num);
+                SendMsg("cycle num =" + cycle_num);
             }
+            handlers.postDelayed(this, 9000);
 
         }
-        return ret;
-    }*/
+    };
+
+    Print_Thread printThread = null;
+
+
+
+
+  
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+
+            switch (msg.what) {
+                case DISABLE_RG:
+                    IsWorking = 1;
+                    rb_high.setEnabled(false);
+                    rb_middle.setEnabled(false);
+                    rb_low.setEnabled(false);
+                    radioButton_4.setEnabled(false);
+                    radioButton_5.setEnabled(false);
+                    break;
+
+                case ENABLE_RG:
+                    IsWorking = 0;
+                    rb_high.setEnabled(true);
+                    rb_middle.setEnabled(true);
+                    rb_low.setEnabled(true);
+                    radioButton_4.setEnabled(true);
+                    radioButton_5.setEnabled(true);
+
+                    break;
+                default:
+                    Bundle b = msg.getData();
+                    String strInfo = b.getString("MSG");
+                    textViewMsg.setText(strInfo);
+
+                    break;
+            }
+        }
+    };
+
+    public class BatteryReceiver extends BroadcastReceiver {
+        public void onReceive(Context context, Intent intent) {
+            voltage_level = intent.getExtras().getInt("level");// ��õ�ǰ����
+            Log.e("wbw", "current  = " + voltage_level);
+            BatteryV = intent.getIntExtra("voltage", 0);  //电池电压
+            Log.e("wbw", "BatteryV  = " + BatteryV);
+            Log.e("wbw", "V  = " + BatteryV * 2 / 100);
+            //  m_voltage = (int) (65+19*voltage_level/100); //放大十倍
+            //   Log.e("wbw","m_voltage  = " + m_voltage );
+        }
+    }
+ /* public static Bitmap decodeBase64(String input)
+  {
+    byte[] decodedBytes = Base64.decode(input, 0);
+    return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+  }*/
+   //This will send data to bluetooth printer
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
                 try {
@@ -184,21 +270,21 @@ public class PrintActivity extends CordovaPlugin {
                     RESULT_CODE = -1;
                     Log.e(tag, "Lib_PrnCheckStatus fail, ret = " + ret);
                   //  SendMsg("Error, No Paper ");
-                  //  m_bThreadFinished = true;
+                    m_bThreadFinished = true;
                     callbackContext.error( "Lib_PrnCheckStatus fail, ret = " + ret);
                     return false;
                 } else if (ret == -2) {
                     RESULT_CODE = -1;
                     Log.e(tag, "Lib_PrnCheckStatus fail, ret = " + ret);
                  //   SendMsg("Error, Printer Too Hot ");
-                 //   m_bThreadFinished = true;
+                    m_bThreadFinished = true;
                     callbackContext.error("Lib_PrnCheckStatus fail, ret = " + ret);
                     return false;
                 } else if (ret == -3) {
                     RESULT_CODE = -1;
                     Log.e(tag, "voltage = " + (BatteryV * 2));
                   //  SendMsg("Battery less :" + (BatteryV * 2));
-                 //   m_bThreadFinished = true;
+                    m_bThreadFinished = true;
                     callbackContext.error("Battery low" );
                     return false;
                 }
