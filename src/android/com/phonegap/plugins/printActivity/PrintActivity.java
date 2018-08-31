@@ -297,7 +297,7 @@ public class PrintActivity extends CordovaPlugin {
     }
     
 
-     boolean readNfcCard(){
+     boolean readNfcCard(CallbackContext callbackContext){
           long time = System.currentTimeMillis();
                 while (System.currentTimeMillis() < time + 3000) {
         Log.e("nfc", "heyp nfc Picc_Open start!");
