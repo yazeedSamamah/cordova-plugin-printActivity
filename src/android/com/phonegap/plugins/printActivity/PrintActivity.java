@@ -131,7 +131,14 @@ public class PrintActivity extends CordovaPlugin {
             return true;
         }
            if (action.equals("readNfcCard")) {
+            try{
               readNfcCard(callbackContext);
+              } catch (IOException e) {
+           //test
+               Log.e(tag, e.getMessage());
+               e.printStackTrace();
+           }
+            return true;
            }
       //  return false;
     }
