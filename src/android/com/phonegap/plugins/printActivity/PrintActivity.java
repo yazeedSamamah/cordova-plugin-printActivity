@@ -55,7 +55,7 @@ import android.content.Context;
 
 
 
-
+import vpos.apipackage.ByteUtil;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 
