@@ -130,7 +130,10 @@ public class PrintActivity extends CordovaPlugin {
            }
             return true;
         }
-        return false;
+           if (action.equals("readNfcCard")) {
+              readNfcCard(callbackContext);
+           }
+      //  return false;
     }
 
     
@@ -293,4 +296,52 @@ public class PrintActivity extends CordovaPlugin {
         return false;
     }
     
+
+     boolean readNfcCard(){
+          long time = System.currentTimeMillis();
+                while (System.currentTimeMillis() < time + 3000) {
+        Log.e("nfc", "heyp nfc Picc_Open start!");
+        byte[] NfcData_Len = new byte[5];
+        byte[] Technology = new byte[25];
+        byte[] NFC_UID = new byte[56];
+        byte[] NDEF_message = new byte[500];
+
+        int ret = posApiHelper.PiccNfc( NfcData_Len, Technology, NFC_UID, NDEF_message);
+
+        int TechnologyLength = NfcData_Len[0] & 0xFF;
+        int NFC_UID_length = NfcData_Len[1] & 0xFF;
+        int NDEF_message_length = (NfcData_Len[3] & 0xFF) + (NfcData_Len[4] & 0xFF);
+        byte[] NDEF_message_data = new byte[NDEF_message_length];
+        byte[] NFC_UID_data = new byte[NFC_UID_length];
+        System.arraycopy(NFC_UID, 0, NFC_UID_data, 0, NFC_UID_length);
+        System.arraycopy(NDEF_message, 0, NDEF_message_data, 0, NDEF_message_length);
+        String NDEF_message_data_str = new String(NDEF_message_data);
+        String NDEF_str = null;
+    /*    if (!TextUtils.isEmpty(NDEF_message_data_str)) {
+            NDEF_str = NDEF_message_data_str.substring(NDEF_message_data_str.indexOf("en")+2,NDEF_message_data_str.length());
+        }*/
+
+        if (ret != 0) {
+              callbackContext.error( "read NFC card fail");
+               return false;
+           /* posApiHelper.SysBeep();
+            //successCount ++;
+            if (!TextUtils.isEmpty(NDEF_str)) {
+                textViewMsg.setText("TYPE: " + new String(Technology).substring(0, TechnologyLength) + "\n"
+                        + "UID: " + + "\n"
+                        + NDEF_str);
+            }else{
+                textViewMsg.setText("TYPE: " + new String(Technology).substring(0, TechnologyLength) + "\n"
+                        + "UID: " + ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length));
+            }*/
+
+        }
+
+        posApiHelper.SysBeep();
+        callbackContext.success(ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length));
+        return true;
+    }
+     callbackContext.error( "NFC timeout");
+        return true;
+    }
 }
