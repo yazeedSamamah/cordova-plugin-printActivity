@@ -308,6 +308,9 @@ public class PrintActivity extends CordovaPlugin {
         byte[] NDEF_message = new byte[500];
 
         int ret = posApiHelper.PiccNfc( NfcData_Len, Technology, NFC_UID, NDEF_message);
+              if (ret != 0) {
+              callbackContext.error( "read NFC card fail");
+               return false;}
 
         int TechnologyLength = NfcData_Len[0] & 0xFF;
         int NFC_UID_length = NfcData_Len[1] & 0xFF;
@@ -322,9 +325,7 @@ public class PrintActivity extends CordovaPlugin {
             NDEF_str = NDEF_message_data_str.substring(NDEF_message_data_str.indexOf("en")+2,NDEF_message_data_str.length());
         }*/
 
-        if (ret != 0) {
-              callbackContext.error( "read NFC card fail");
-               return false;
+      
            /* posApiHelper.SysBeep();
             //successCount ++;
             if (!TextUtils.isEmpty(NDEF_str)) {
@@ -336,7 +337,7 @@ public class PrintActivity extends CordovaPlugin {
                         + "UID: " + ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length));
             }*/
 
-        }
+        
 
         posApiHelper.SysBeep();
         callbackContext.success(ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length));
