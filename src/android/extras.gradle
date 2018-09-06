@@ -1,3 +1,14 @@
+
+repositories{
+    jcenter()
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile(name:'printactivity-release-2.1.5.aar', ext:'aar')
+}
 android {
 	 compileSdkVersion 27
 
@@ -15,14 +26,5 @@ android {
    }
 
 
-repositories{
-    jcenter()
-    flatDir{
-        dirs 'libs'
-    }
-}
 
-dependencies {
-    compile(name:'printactivity-release-2.1.5.aar', ext:'aar')
-}
 }
