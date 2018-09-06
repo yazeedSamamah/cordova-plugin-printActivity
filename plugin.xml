@@ -47,7 +47,8 @@
       <uses-feature android:name="android.hardware.camera" android:required="true"/>
     </config-file> -->
     <framework src="src/android/printActivity.gradle" custom="true" type="gradleReference"/>
-    <preference name="ANDROID_SUPPORT_V4_VERSION" default="27.+"/>
+
+
     <resource-file src="src/android/libs/printactivity-release-2.1.5.aar" target="libs/printactivity-release-2.1.5.aar"/>
 
   
