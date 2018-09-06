@@ -1,6 +1,7 @@
 android {
 	 compileSdkVersion 27
 
+
     defaultConfig {
        multiDexEnabled true
        minSdkVersion 15 
@@ -12,4 +13,10 @@ android {
        exclude 'META-INF/NOTICE'
        exclude 'META-INF/LICENSE'
    }
+
+
+   compileOptions {
+sourceCompatibility JavaVersion.VERSION_1_8
+targetCompatibility JavaVersion.VERSION_1_8
+}
 }
