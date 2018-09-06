@@ -14,7 +14,9 @@ android {
        exclude 'META-INF/LICENSE'
    }
 
-
+repositories {
+    jcenter()
+}
    compileOptions {
 sourceCompatibility JavaVersion.VERSION_1_8
 targetCompatibility JavaVersion.VERSION_1_8
