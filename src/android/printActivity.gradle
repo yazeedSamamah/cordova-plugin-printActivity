@@ -7,7 +7,8 @@ repositories{
 
 dependencies {
    compile(name:'printactivity-release-2.1.5', ext:'aar')
-  
+   
+}
 
 android {
   packagingOptions {
