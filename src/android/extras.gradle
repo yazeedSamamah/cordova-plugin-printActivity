@@ -3,14 +3,14 @@ android {
 
 
     defaultConfig {
-       multiDexEnabled true
+
        minSdkVersion 15 
        targetSdkVersion 27
-        jackOptions {
-      enabled true
-    }
 
-        
+       
+
+
+              multiDexEnabled true 
     }
 
 
