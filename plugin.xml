@@ -17,7 +17,7 @@
     <variable name="APP_NAME" value="cordova-plugin-printActivity"/> -->
   </plugin>
   <engines>
-    <engine name="cordova" version=">=3.0.0"/>
+  <engine name="cordova" version=">=7.1.0"/>
   </engines>
   <js-module src="www/printActivity.js" name="PrintActivity">
     <clobbers target="cordova.plugins.printActivity"/>
