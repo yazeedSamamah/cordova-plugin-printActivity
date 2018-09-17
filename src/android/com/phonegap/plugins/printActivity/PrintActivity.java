@@ -310,9 +310,9 @@ public class PrintActivity extends CordovaPlugin {
         byte[] NDEF_message = new byte[500];
 
         int ret = posApiHelper.PiccNfc( NfcData_Len, Technology, NFC_UID, NDEF_message);
-              if (ret != 0) {
-              callbackContext.error( "read NFC card fail");
-               return false;}
+              if (ret == 0) {
+              //callbackContext.error( "read NFC card fail");
+             //  return false;
 
         int TechnologyLength = NfcData_Len[0] & 0xFF;
         int NFC_UID_length = NfcData_Len[1] & 0xFF;
@@ -323,6 +323,10 @@ public class PrintActivity extends CordovaPlugin {
         System.arraycopy(NDEF_message, 0, NDEF_message_data, 0, NDEF_message_length);
         String NDEF_message_data_str = new String(NDEF_message_data);
         String NDEF_str = null;
+        posApiHelper.SysBeep();
+        callbackContext.success(ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length));
+        return true;
+        }
     /*    if (!TextUtils.isEmpty(NDEF_message_data_str)) {
             NDEF_str = NDEF_message_data_str.substring(NDEF_message_data_str.indexOf("en")+2,NDEF_message_data_str.length());
         }*/
@@ -341,9 +345,7 @@ public class PrintActivity extends CordovaPlugin {
 
         
 
-        posApiHelper.SysBeep();
-        callbackContext.success(ByteUtil.bytearrayToHexString(NFC_UID_data, NFC_UID_data.length));
-        return true;
+        
     }
      callbackContext.error( "NFC timeout");
         return true;
