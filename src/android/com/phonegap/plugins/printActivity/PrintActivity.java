@@ -302,7 +302,7 @@ public class PrintActivity extends CordovaPlugin {
 
      boolean readNfcCard(CallbackContext callbackContext){
           long time = System.currentTimeMillis();
-                while (System.currentTimeMillis() < time + 70000) {
+                while (System.currentTimeMillis() < time + 7000) {
         Log.e("nfc", "heyp nfc Picc_Open start!");
         byte[] NfcData_Len = new byte[5];
         byte[] Technology = new byte[25];
