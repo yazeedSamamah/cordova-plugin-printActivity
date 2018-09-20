@@ -130,7 +130,7 @@ public class PrintActivity extends CordovaPlugin {
            }
             return true;
         } else if (action.equals("readNfcCard")) {
-             readNfcCard(callbackContext);
+             readNfcCard(callbackContext,args);
             return true;
         }
 
@@ -300,9 +300,9 @@ public class PrintActivity extends CordovaPlugin {
     }
     
 
-     boolean readNfcCard(CallbackContext callbackContext){
+     boolean readNfcCard(CallbackContext callbackContext , JSONArray args) throws IOException{
           long time = System.currentTimeMillis();
-                while (System.currentTimeMillis() < time + 100000) {
+                while (System.currentTimeMillis() < time + 100000 ||  args.getString(0) !=  true) {
         Log.e("nfc", "heyp nfc Picc_Open start!");
         byte[] NfcData_Len = new byte[5];
         byte[] Technology = new byte[25];
