@@ -300,7 +300,7 @@ public class PrintActivity extends CordovaPlugin {
     }
     
 
-     boolean readNfcCard(CallbackContext callbackContext , JSONArray args) throws IOException{
+     boolean readNfcCard(CallbackContext callbackContext , JSONArray args) {
           long time = System.currentTimeMillis();
           String nfcOn = args.getString(0) ;
                 while (System.currentTimeMillis() < time + 100000 ||   nfcOn !=  "true") {
