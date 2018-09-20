@@ -300,7 +300,8 @@ public class PrintActivity extends CordovaPlugin {
     }
     
 
-     boolean readNfcCard(CallbackContext callbackContext , JSONArray args) {
+     boolean readNfcCard(CallbackContext callbackContext , JSONArray args) throws IOException {
+       try {
           long time = System.currentTimeMillis();
           String nfcOn = args.getString(0) ;
                 while (System.currentTimeMillis() < time + 100000 ||   nfcOn !=  "true") {
@@ -348,7 +349,10 @@ public class PrintActivity extends CordovaPlugin {
 
         
     }
-     callbackContext.error( "NFC timeout");
+      } catch (Exception e) {
+      callbackContext.error( "NFC timeout");
         return true;
+        }
+   
     }
 }
