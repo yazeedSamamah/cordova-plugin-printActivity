@@ -350,9 +350,10 @@ public class PrintActivity extends CordovaPlugin {
         
     }
       } catch (Exception e) {
-      callbackContext.error( "NFC timeout");
-        return true;
+      callbackContext.error( "NFC red error");
+        return false;
         }
-   
+  callbackContext.error( "NFC timeout");
+        return true;
     }
 }
