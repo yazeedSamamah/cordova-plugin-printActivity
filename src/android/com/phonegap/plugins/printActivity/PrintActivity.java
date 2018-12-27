@@ -65,6 +65,11 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
+
+
+import woyou.aidlservice.jiuiv5.ICallback;
+import android.graphics.Bitmap;
+import com.sunmi.trans.TransBean;
 public class PrintActivity extends CordovaPlugin {
 
       public String tag = "PrintActivity";
@@ -147,6 +152,10 @@ public class PrintActivity extends CordovaPlugin {
                e.printStackTrace();
            }
             return true;
+        }else if(action.equals("testPrint")){
+            WoyouService. SetAlignment (1, callback);
+WoyouService. SetFontSize (36, callback);
+Woyouservice.printtext (" sunmi \n", callback);
         }
 
       return false;

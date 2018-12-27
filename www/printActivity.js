@@ -9,3 +9,6 @@ exports.readNfcCard = function( successCallback, errorCallback) {
 exports.efawateerPrint = function( str, successCallback, errorCallback) {
     cordova.exec(successCallback, errorCallback, 'PrintActivity', 'efawateerPrint', str);
 };
+exports.efawateerPrint = function( str, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, 'PrintActivity', 'testPrint', str);
+};

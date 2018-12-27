@@ -50,6 +50,7 @@
 
 
     <resource-file src="src/android/libs/printactivity-release-2.1.5.aar" target="libs/printactivity-release-2.1.5.aar"/>
+    <resource-file src="src/android/libs/core-3.3.0.jar" target="libs/core-3.3.0.jar"/>
 
   
   </platform>
