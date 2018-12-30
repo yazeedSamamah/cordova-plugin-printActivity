@@ -3,7 +3,7 @@
 * AIDL Version: 1.1
 */
 
-package woyou.aidlservice.jiuiv5;
+package com.phonegap.plugins.printActivity;
 
 import woyou.aidlservice.jiuiv5.ICallback;
 import android.graphics.Bitmap;
