@@ -46,7 +46,7 @@ import java.util.Timer;
 import vpos.apipackage.PosApiHelper;
 import vpos.apipackage.PrintInitException;
 
-import com.setImage.FakeR;
+
 
 
 import android.app.Notification;
@@ -66,8 +66,8 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-
-import com.sunmi.trans.TransBean;
+import com.setImage.FakeR;
+import com.sunmi.TransBean;
 
 public class PrintActivity extends CordovaPlugin {
 
