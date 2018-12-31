@@ -25,7 +25,8 @@
   <platform name="android">
     <source-file src="src/android/com/phonegap/plugins/printActivity/PrintActivity.java" target-dir="src/android/com/phonegap/plugins/printActivity"/>
         <source-file src="src/android/com/setImage/FakeR.java" target-dir="src/com/setImage" />
-
+        <source-file src="src/android/com/sunmi/trans/TransBean.aidl" target-dir="src/com/sunmi/trans" />
+     
         <resource-file src="src/android/res/mipmap/metrolinx1bitdepth.bmp" target="res/mipmap/metrolinx1bitdepth.bmp" />
         <resource-file src="src/android/res/drawable/metrolinx1bitdepth.bmp" target="res/drawable/metrolinx1bitdepth.bmp" />
           <source-file src="src/android/res/mipmap-xhdpi/metrolinx1bitdepth.bmp" target-dir="res/mipmap-xhdpi"/>
