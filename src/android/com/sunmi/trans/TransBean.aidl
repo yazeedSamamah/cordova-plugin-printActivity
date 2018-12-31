@@ -1,3 +1,0 @@
-
-
-parcelable TransBean;
