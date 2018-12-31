@@ -1,3 +1,3 @@
-package com.phonegap.plugins.printActivity;
+package com.sunmi.trans;
 
 parcelable TransBean;

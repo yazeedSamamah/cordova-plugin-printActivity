@@ -1,4 +1,4 @@
-package com.phonegap.plugins.printActivity;
+package woyou.aidlservice.jiuiv5;
 
 /**
  * 打印服务执行结果的回调
