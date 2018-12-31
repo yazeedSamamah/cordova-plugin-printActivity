@@ -66,7 +66,7 @@ import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import com.woyou.aidlservice.jiuiv5.ICallback;
+
 import com.sunmi.trans.TransBean;
 
 public class PrintActivity extends CordovaPlugin {
