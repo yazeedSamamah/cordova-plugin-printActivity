@@ -81,7 +81,7 @@ public class PrintActivity extends CordovaPlugin {
     final int PRINT_CYCLE = 5;
     final int PRINT_LONGER = 7;
     final int PRINT_OPEN = 8;
-
+private IWoyouService woyouService;
     private RadioGroup rg = null;
     private Timer timer;
     private Timer timer2;
@@ -154,10 +154,10 @@ public class PrintActivity extends CordovaPlugin {
            }
             return true;
         }else if(action.equals("testPrint")){
-            Intent intent = new Intent();
+     /*       Intent intent = new Intent();
         intent.setPackage("woyou.aidlservice.jiuiv5");
-        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-private IWoyouService woyouService;
+        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
+
 woyouservice.printtext (" sunmi \n", callback);
  return true;
         }
