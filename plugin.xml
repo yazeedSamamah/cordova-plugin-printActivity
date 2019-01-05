@@ -42,6 +42,12 @@
       <feature name="TransBean">
        <param name="android-package" value="com.sunmi.TransBean" />
      </feature>
+      <feature name="TransBean">
+       <param name="android-package" value="com.woyou.aidlservice.jiuiv5.ICallback" />
+     </feature>
+      <feature name="TransBean">
+       <param name="android-package" value="com.woyou.aidlservice.jiuiv5.IWoyouService" />
+     </feature>
     </config-file>
     <!--<config-file target="AndroidManifest.xml" parent="/manifest/application">
       <activity android:name="vpos.apipackage.PosApiHelper" android:clearTaskOnLaunch="true" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden" android:exported="false" />
