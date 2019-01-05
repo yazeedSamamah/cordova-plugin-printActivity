@@ -152,9 +152,9 @@ public class PrintActivity extends CordovaPlugin {
            }
             return true;
         }else if(action.equals("testPrint")){
-       /*     WoyouService. SetAlignment (1, callback);
+           WoyouService. SetAlignment (1, callback);
 WoyouService. SetFontSize (36, callback);
-Woyouservice.printtext (" sunmi \n", callback);*/
+Woyouservice.printtext (" sunmi \n", callback);
  return true;
         }
 
