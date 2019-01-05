@@ -7,7 +7,7 @@ repositories{
 
 dependencies {
    compile(name:'printactivity-release-2.1.5', ext:'aar')
-   
+   compile(name:'core-3.3.0.jar', ext:'jar')
 }
 
 android {
