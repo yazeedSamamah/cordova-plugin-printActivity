@@ -25,12 +25,10 @@
   <platform name="android">
     <source-file src="src/android/com/phonegap/plugins/printActivity/PrintActivity.java" target-dir="src/android/com/phonegap/plugins/printActivity"/>
         <source-file src="src/android/com/setImage/FakeR.java" target-dir="src/com/setImage" />
-        <source-file src="src/android/com/sunmi/TransBean.java" target-dir="src/com/sunmi/TransBean" />
+        <source-file src="src/android/com/sunmi/TransBean.java" target-dir="src/com/sunmi" />
 
 
-<feature name="TransBean">
-    <param name="android-package" value="com.sunmi.TransBean" />
-</feature>
+
         <resource-file src="src/android/res/mipmap/metrolinx1bitdepth.bmp" target="res/mipmap/metrolinx1bitdepth.bmp" />
         <resource-file src="src/android/res/drawable/metrolinx1bitdepth.bmp" target="res/drawable/metrolinx1bitdepth.bmp" />
           <source-file src="src/android/res/mipmap-xhdpi/metrolinx1bitdepth.bmp" target-dir="res/mipmap-xhdpi"/>
@@ -41,6 +39,9 @@
       <feature name="PrintActivity">
         <param name="android-package" value="com.phonegap.plugins.printActivity.PrintActivity"/>
       </feature>
+      <feature name="TransBean">
+       <param name="android-package" value="com.sunmi.TransBean" />
+     </feature>
     </config-file>
     <!--<config-file target="AndroidManifest.xml" parent="/manifest/application">
       <activity android:name="vpos.apipackage.PosApiHelper" android:clearTaskOnLaunch="true" android:configChanges="orientation|keyboardHidden|screenSize" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden" android:exported="false" />
