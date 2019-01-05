@@ -68,8 +68,8 @@ import org.json.JSONException;
 import android.content.Intent;
 import com.setImage.FakeR;
 import com.sunmi.TransBean;
-import com.woyou.aidlservice.jiuiv5.ICallback;
-import com.woyou.aidlservice.jiuiv5.IWoyouService;
+import woyou.aidlservice.jiuiv5.ICallback;
+import woyou.aidlservice.jiuiv5.IWoyouService;
 
 public class PrintActivity extends CordovaPlugin {
         
@@ -92,7 +92,7 @@ public class PrintActivity extends CordovaPlugin {
     SharedPreferences preferences;
     SharedPreferences sp;
     SharedPreferences.Editor editor;
-     private IWoyouService woyouService;
+     
     
    // TextView textViewMsg = null;
    // TextView textViewGray = null;
@@ -157,7 +157,7 @@ public class PrintActivity extends CordovaPlugin {
             Intent intent = new Intent();
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-
+private IWoyouService woyouService;
 woyouservice.printtext (" sunmi \n", callback);
  return true;
         }
