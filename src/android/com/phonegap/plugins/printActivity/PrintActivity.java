@@ -109,34 +109,7 @@ public class PrintActivity extends CordovaPlugin {
      
     private IWoyouService woyouService;
 
-    private ServiceConnection connService = new ServiceConnection() {
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            woyouService = null;
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            woyouService = IWoyouService.Stub.asInterface(service);
-        }
-    };
-
-          ICallback callback = new ICallback.Stub() {
-
-        @Override
-        public void onRunResult(boolean success) throws RemoteException {
-        }
-
-        @Override
-        public void onReturnString(final String value) throws RemoteException {
-        }
-
-        @Override
-        public void onRaiseException(int code, final String msg)
-                throws RemoteException {
-        }
-    };
+    
    /* Private ServiceConnection connService = new ServiceConnection() {
 
 @Override
@@ -235,13 +208,41 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
      /*       Intent intent = new Intent();
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
+private ServiceConnection connService = new ServiceConnection() {
 
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            woyouService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            woyouService = IWoyouService.Stub.asInterface(service);
+        }
+    };
+
+          ICallback callback = new ICallback.Stub() {
+
+        @Override
+        public void onRunResult(boolean success) throws RemoteException {
+        }
+
+        @Override
+        public void onReturnString(final String value) throws RemoteException {
+        }
+
+        @Override
+        public void onRaiseException(int code, final String msg)
+                throws RemoteException {
+        }
+    };
+        Toast.makeText(getApplicationContext(), "通过JS调用本地方法funAndroid " + i,    Toast.LENGTH_SHORT).show();
         try {
                 woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
-               
+
                 return false ;
             }
  
