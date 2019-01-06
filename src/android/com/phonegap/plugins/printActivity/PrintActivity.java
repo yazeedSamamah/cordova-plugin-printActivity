@@ -236,7 +236,11 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
 
-        woyouService.printerSelfChecking(callback);
+        try {
+                woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
  return true;
         }
 
