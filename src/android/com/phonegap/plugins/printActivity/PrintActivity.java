@@ -108,7 +108,7 @@ public class PrintActivity extends CordovaPlugin {
         }
     };
 
-    ICallback callback = new ICallback.Stub() {
+ /*   ICallback callback = new ICallback.Stub() {
 
         @Override
         public void onRunResult(boolean success) throws RemoteException {
@@ -122,7 +122,7 @@ public class PrintActivity extends CordovaPlugin {
         public void onRaiseException(int code, final String msg)
                 throws RemoteException {
         }
-    };
+    };*/
    // TextView textViewMsg = null;
    // TextView textViewGray = null;
     int ret = -1;
