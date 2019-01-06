@@ -276,8 +276,8 @@ return true;
 case TRANSACTION_commitPrint:
 {
 data.enforceInterface(DESCRIPTOR);
-com.sunmi.trans.TransBean[] _arg0;
-_arg0 = data.createTypedArray(com.sunmi.trans.TransBean.CREATOR);
+com.sunmi.TransBean[] _arg0;
+_arg0 = data.createTypedArray(com.sunmi.TransBean.CREATOR);
 woyou.aidlservice.jiuiv5.ICallback _arg1;
 _arg1 = woyou.aidlservice.jiuiv5.ICallback.Stub.asInterface(data.readStrongBinder());
 this.commitPrint(_arg0, _arg1);
@@ -786,7 +786,7 @@ _data.recycle();
 	* transbean		打印任务列表
 	* Ver 1.8.0中增加
 	*/
-@Override public void commitPrint(com.sunmi.trans.TransBean[] transbean, woyou.aidlservice.jiuiv5.ICallback callback) throws android.os.RemoteException
+@Override public void commitPrint(com.sunmi.TransBean[] transbean, woyou.aidlservice.jiuiv5.ICallback callback) throws android.os.RemoteException
 {
 android.os.Parcel _data = android.os.Parcel.obtain();
 android.os.Parcel _reply = android.os.Parcel.obtain();
@@ -1016,7 +1016,7 @@ public void printOriginalText(java.lang.String text, woyou.aidlservice.jiuiv5.IC
 	* transbean		打印任务列表
 	* Ver 1.8.0中增加
 	*/
-public void commitPrint(com.sunmi.trans.TransBean[] transbean, woyou.aidlservice.jiuiv5.ICallback callback) throws android.os.RemoteException;
+public void commitPrint(com.sunmi.TransBean[] transbean, woyou.aidlservice.jiuiv5.ICallback callback) throws android.os.RemoteException;
 /**
 	* 打印缓冲区内容
 	*/
