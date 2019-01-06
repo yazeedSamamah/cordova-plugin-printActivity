@@ -238,10 +238,13 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
 
         try {
                 woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
+                return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
+                callbackContext.error(  e.printStackTrace());
+                return false ;
             }
- return true;
+ 
         }
 
       return false;
