@@ -93,7 +93,7 @@ public class PrintActivity extends CordovaPlugin {
     SharedPreferences sp;
     SharedPreferences.Editor editor;
      
-    private IWoyouService woyouService;
+    /*private IWoyouService woyouService;
 
     private ServiceConnection connService = new ServiceConnection() {
 
@@ -122,7 +122,39 @@ public class PrintActivity extends CordovaPlugin {
         public void onRaiseException(int code, final String msg)
                 throws RemoteException {
         }
-    };
+    };*/
+    Private ServiceConnection connService = new ServiceConnection() {
+@ Override
+Public void onServiceDisconnected(ComponentName name) {
+Toast. MakeText (this, "the service disconnected", Toast. LENGTH_LONG), show ();
+SetButtonEnable (false);
+WoyouService = null;
+ Try {
+ Thread.sleep (2000);
+ } catch (interruptedexe) {
+ // TODO auto-generated catch block 
+     E.p rintStackTrace ();
+ }
+ Binding ();
+}
+@ Override
+Public void onServiceConnected (the ComponentName name, IBinder service) {
+ WoyouService = IWoyouService. Stub. AsInterface (service);
+ SetButtonEnable (true);
+ Try {
+ ServiceVersion = woyouService. GetServiceVersion ();
+Info. SetText ("service version :" + serviceVersion + "\n");
+ } catch (RemoteException e) {
+ // TODO auto-generated catch block
+ E.p rintStackTrace ();
+ }
+} 
+Private void Binding () {
+Intent Intent = new Intent ();
+Intent. SetPackage ("woyou.Aidlservice.Jiuiv5 ");
+Intent. SetAction ("woyou.Aidlservice.Jiuiv5.IWoyouService ");
+BindService (intent, connService, Context. BIND_AUTO_CREATE);
+}
    // TextView textViewMsg = null;
    // TextView textViewGray = null;
     int ret = -1;
@@ -187,7 +219,9 @@ public class PrintActivity extends CordovaPlugin {
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
 
-woyouService.printtext(" yazeed", callback);
+WoyouService.SetAlignment (1, callback);
+WoyouService.SetFontSize (36, callback);
+Woyouservice.printtext (" sunmi \n", callback);
  return true;
         }
 
