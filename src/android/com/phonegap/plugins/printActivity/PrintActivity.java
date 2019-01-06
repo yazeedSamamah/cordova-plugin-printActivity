@@ -241,7 +241,7 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
-                callbackContext.error(  e.printStackTrace());
+               
                 return false ;
             }
  
