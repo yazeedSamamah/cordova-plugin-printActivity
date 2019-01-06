@@ -235,7 +235,7 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
             Intent intent = new Intent();
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-        startService(intent);//启动打印服务
+    //    startService(intent);//启动打印服务
         bindService(intent, connService, Context.BIND_AUTO_CREATE);
 
         try {
@@ -243,7 +243,7 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
-               
+
                 return false ;
             }
  
