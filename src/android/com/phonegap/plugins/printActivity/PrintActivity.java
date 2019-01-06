@@ -186,8 +186,7 @@ public class PrintActivity extends CordovaPlugin {
      /*       Intent intent = new Intent();
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
-
-woyouservice.printtext (" sunmi \n", callback);
+woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
  return true;
         }
 
