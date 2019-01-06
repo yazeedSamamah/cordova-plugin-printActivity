@@ -1016,7 +1016,7 @@ public void printOriginalText(java.lang.String text, woyou.aidlservice.jiuiv5.IC
 	* transbean		打印任务列表
 	* Ver 1.8.0中增加
 	*/
-public void commitPrint(com.sunmi.trans.TransBean[] transbean, woyou.aidlservice.jiuiv5.ICallback callback) throws android.os.RemoteException;
+public void commitPrint(com.sunmi.TransBean[] transbean, woyou.aidlservice.jiuiv5.ICallback callback) throws android.os.RemoteException;
 /**
 	* 打印缓冲区内容
 	*/
