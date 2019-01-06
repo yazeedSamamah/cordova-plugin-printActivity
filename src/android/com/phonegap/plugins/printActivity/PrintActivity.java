@@ -108,21 +108,7 @@ public class PrintActivity extends CordovaPlugin {
         }
     };
 
- /*   ICallback callback = new ICallback.Stub() {
 
-        @Override
-        public void onRunResult(boolean success) throws RemoteException {
-        }
-
-        @Override
-        public void onReturnString(final String value) throws RemoteException {
-        }
-
-        @Override
-        public void onRaiseException(int code, final String msg)
-                throws RemoteException {
-        }
-    };*/
    // TextView textViewMsg = null;
    // TextView textViewGray = null;
     int ret = -1;
@@ -186,6 +172,21 @@ public class PrintActivity extends CordovaPlugin {
      /*       Intent intent = new Intent();
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
+          ICallback callback = new ICallback.Stub() {
+
+        @Override
+        public void onRunResult(boolean success) throws RemoteException {
+        }
+
+        @Override
+        public void onReturnString(final String value) throws RemoteException {
+        }
+
+        @Override
+        public void onRaiseException(int code, final String msg)
+                throws RemoteException {
+        }
+    };
 woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
  return true;
         }
