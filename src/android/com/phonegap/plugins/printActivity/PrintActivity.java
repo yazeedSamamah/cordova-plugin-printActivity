@@ -187,7 +187,7 @@ public class PrintActivity extends CordovaPlugin {
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
 
-woyouService.printtext (" yazeed", callback);
+woyouService.printtext(" yazeed", callback);
  return true;
         }
 
