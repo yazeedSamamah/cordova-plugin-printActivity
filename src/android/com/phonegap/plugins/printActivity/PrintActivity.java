@@ -81,7 +81,7 @@ public class PrintActivity extends CordovaPlugin {
     final int PRINT_CYCLE = 5;
     final int PRINT_LONGER = 7;
     final int PRINT_OPEN = 8;
-private IWoyouService woyouService;
+
     private RadioGroup rg = null;
     private Timer timer;
     private Timer timer2;
@@ -93,7 +93,36 @@ private IWoyouService woyouService;
     SharedPreferences sp;
     SharedPreferences.Editor editor;
      
-    
+    private IWoyouService woyouService;
+
+    private ServiceConnection connService = new ServiceConnection() {
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            woyouService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            woyouService = IWoyouService.Stub.asInterface(service);
+        }
+    };
+
+    ICallback callback = new ICallback.Stub() {
+
+        @Override
+        public void onRunResult(boolean success) throws RemoteException {
+        }
+
+        @Override
+        public void onReturnString(final String value) throws RemoteException {
+        }
+
+        @Override
+        public void onRaiseException(int code, final String msg)
+                throws RemoteException {
+        }
+    };
    // TextView textViewMsg = null;
    // TextView textViewGray = null;
     int ret = -1;
