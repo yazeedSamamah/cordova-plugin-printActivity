@@ -237,7 +237,7 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
 
         try {
-                woyouService.printtext (" sunmi \n", callback);//这里使用的AIDL方式打印
+                woyouService.printtext(" sunmi \n", callback);//这里使用的AIDL方式打印
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
