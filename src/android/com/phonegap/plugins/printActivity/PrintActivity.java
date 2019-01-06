@@ -124,7 +124,8 @@ public class PrintActivity extends CordovaPlugin {
         }
     };*/
     Private ServiceConnection connService = new ServiceConnection() {
-@ Override
+
+@Override
 Public void onServiceDisconnected(ComponentName name) {
 Toast. MakeText (this, "the service disconnected", Toast. LENGTH_LONG), show ();
 SetButtonEnable (false);
@@ -137,7 +138,8 @@ WoyouService = null;
  }
  Binding ();
 }
-@ Override
+
+@Override
 Public void onServiceConnected (the ComponentName name, IBinder service) {
  WoyouService = IWoyouService. Stub. AsInterface (service);
  SetButtonEnable (true);
@@ -148,7 +150,8 @@ Info. SetText ("service version :" + serviceVersion + "\n");
  // TODO auto-generated catch block
  E.p rintStackTrace ();
  }
-} 
+}
+ 
 Private void Binding () {
 Intent Intent = new Intent ();
 Intent. SetPackage ("woyou.Aidlservice.Jiuiv5 ");
