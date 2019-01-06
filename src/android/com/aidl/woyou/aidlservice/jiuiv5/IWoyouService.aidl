@@ -3,7 +3,7 @@
 * AIDL Version: 1.1
 */
 
-package com.woyou.aidlservice.jiuiv5;
+package woyou.aidlservice.jiuiv5;
 
 import woyou.aidlservice.jiuiv5.ICallback;
 import android.graphics.Bitmap;

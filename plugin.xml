@@ -40,12 +40,12 @@
         <param name="android-package" value="com.phonegap.plugins.printActivity.PrintActivity"/>
       </feature>
       <feature name="TransBean">
-       <param name="android-package" value="com.sunmi.TransBean" />
+       <param name="android-package" value="com.sunmi.trans.TransBean" />
      </feature>
-      <feature name="TransBean">
+      <feature name="ICallback">
        <param name="android-package" value="com.woyou.aidlservice.jiuiv5.ICallback" />
      </feature>
-      <feature name="TransBean">
+      <feature name="IWoyouService">
        <param name="android-package" value="com.woyou.aidlservice.jiuiv5.IWoyouService" />
      </feature>
     </config-file>
