@@ -39,7 +39,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.R;
-
+import android.os.RemoteException;
 import com.google.zxing.BarcodeFormat;
 
 import java.util.Timer;
