@@ -68,9 +68,23 @@ import org.json.JSONException;
 import android.content.Intent;
 import com.setImage.FakeR;
 import com.sunmi.TransBean;
-import woyou.aidlservice.jiuiv5.ICallback;
-import woyou.aidlservice.jiuiv5.IWoyouService;
-
+import com.woyou.aidlservice.jiuiv5.ICallback;
+import com.woyou.aidlservice.jiuiv5.IWoyouService;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 public class PrintActivity extends CordovaPlugin {
         
       public String tag = "PrintActivity";
@@ -93,7 +107,7 @@ public class PrintActivity extends CordovaPlugin {
     SharedPreferences sp;
     SharedPreferences.Editor editor;
      
-    /*private IWoyouService woyouService;
+    private IWoyouService woyouService;
 
     private ServiceConnection connService = new ServiceConnection() {
 
@@ -122,8 +136,8 @@ public class PrintActivity extends CordovaPlugin {
         public void onRaiseException(int code, final String msg)
                 throws RemoteException {
         }
-    };*/
-    Private ServiceConnection connService = new ServiceConnection() {
+    };
+   /* Private ServiceConnection connService = new ServiceConnection() {
 
 @Override
 Public void onServiceDisconnected(ComponentName name) {
@@ -151,13 +165,13 @@ Info. SetText ("service version :" + serviceVersion + "\n");
  E.p rintStackTrace ();
  }
 }
- 
+
 Private void Binding () {
 Intent Intent = new Intent ();
 Intent. SetPackage ("woyou.Aidlservice.Jiuiv5 ");
 Intent. SetAction ("woyou.Aidlservice.Jiuiv5.IWoyouService ");
 BindService (intent, connService, Context. BIND_AUTO_CREATE);
-}
+}*/
    // TextView textViewMsg = null;
    // TextView textViewGray = null;
     int ret = -1;
@@ -222,9 +236,7 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
         intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");*/
 
-WoyouService.SetAlignment (1, callback);
-WoyouService.SetFontSize (36, callback);
-Woyouservice.printtext (" sunmi \n", callback);
+        woyouService.printerSelfChecking(callback);
  return true;
         }
 
