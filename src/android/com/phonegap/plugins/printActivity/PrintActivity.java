@@ -256,6 +256,18 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
   
    
 
+    public class StartPrint extends Activity {
+        public void onStart() {
+           Intent intent = new Intent();
+      intent.setPackage("woyou.aidlservice.jiuiv5");
+        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
+        activity.startService(intent);//启动打印服务
+        activity.bindService(intent, connService, Context.BIND_AUTO_CREATE);
+ 
+            //  m_voltage = (int) (65+19*voltage_level/100); //放大十倍
+            //   Log.e("wbw","m_voltage  = " + m_voltage );
+        }
+    }
 
 
     Handler handlers = new Handler();
@@ -278,13 +290,9 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
     return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
   }*/
   boolean printPos(CallbackContext callbackContext ) throws IOException {
-      Intent intent = new Intent();
-     try {    intent.setPackage("woyou.aidlservice.jiuiv5");
-        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-        activity.startService(intent);//启动打印服务
-        activity.bindService(intent, connService, Context.BIND_AUTO_CREATE);
- 
-       
+      try {  
+ StartPrint startPrint = new StartPrint(); 
+       startPrint.onStart();
                 woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
                             callbackContext.success("print  success");
                 return true;
