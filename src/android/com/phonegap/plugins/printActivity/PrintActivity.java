@@ -30,14 +30,12 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+
+
 import android.R;
 import android.os.RemoteException;
 import com.google.zxing.BarcodeFormat;
@@ -51,7 +49,7 @@ import vpos.apipackage.PrintInitException;
 
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.Context;
+
 
 
 
@@ -65,8 +63,8 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
-import android.content.Intent;
-import com.setImage.FakeR;
+
+
 import com.sunmi.TransBean;
 import woyou.aidlservice.jiuiv5.ICallback;
 import woyou.aidlservice.jiuiv5.IWoyouService;
@@ -75,17 +73,8 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.webkit.JavascriptInterface;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Toast;
-import android.app.Activity;
+
 public class PrintActivity extends CordovaPlugin {
         
       public String tag = "PrintActivity";
