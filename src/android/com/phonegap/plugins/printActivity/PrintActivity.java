@@ -224,7 +224,17 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
             return true;
         }else if(action.equals("testPrint")){
 
-       printPos(callbackContext);
+        try {
+
+
+        printPos(callbackContext);
+         
+           } catch (IOException e) {
+           //test
+               Log.e(tag, e.getMessage());
+               e.printStackTrace();
+           }
+            return true;
  
         }
 
@@ -267,7 +277,7 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
     byte[] decodedBytes = Base64.decode(input, 0);
     return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
   }*/
-  boolean printPos(CallbackContext callbackContext , JSONArray args) throws IOException {
+  boolean printPos(CallbackContext callbackContext ) throws IOException {
       Intent intent = new Intent();
      try {    intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
