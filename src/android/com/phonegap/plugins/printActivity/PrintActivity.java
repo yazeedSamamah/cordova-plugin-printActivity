@@ -224,20 +224,7 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
             return true;
         }else if(action.equals("testPrint")){
 
-         Intent intent = new Intent();
-        intent.setPackage("woyou.aidlservice.jiuiv5");
-        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-        activity.startService(intent);//启动打印服务
-        activity.bindService(intent, connService, Context.BIND_AUTO_CREATE);
- 
-        try {
-                woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
-                return true;
-            } catch (RemoteException e) {
-                e.printStackTrace();
-  callbackContext.error(" fail,  " +  e.printStackTrace());
-                return false ;
-            }
+       printPos(callbackContext);
  
         }
 
@@ -280,6 +267,23 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
     byte[] decodedBytes = Base64.decode(input, 0);
     return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
   }*/
+  boolean printPos(CallbackContext callbackContext , JSONArray args) throws IOException {
+      Intent intent = new Intent();
+     try {    intent.setPackage("woyou.aidlservice.jiuiv5");
+        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
+        activity.startService(intent);//启动打印服务
+        activity.bindService(intent, connService, Context.BIND_AUTO_CREATE);
+ 
+       
+                woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
+                            callbackContext.success("print  success");
+                return true;
+            } catch (RemoteException e) {
+                e.printStackTrace();
+  callbackContext.error(" fail,  " +  e.printStackTrace());
+                return false ;
+            }
+        }
    //This will send data to bluetooth printer
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
         try {
