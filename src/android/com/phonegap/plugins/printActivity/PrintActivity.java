@@ -13,6 +13,8 @@ import org.apache.cordova.PluginResult;
 import org.apache.cordova.PermissionHelper;
 
 import android.app.Activity;
+import android.os.Bundle;
+
 import android.content.res.Resources;
 import android.util.Base64 ;
 import android.app.Activity;
@@ -250,19 +252,18 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
 
     PosApiHelper posApiHelper = PosApiHelper.getInstance();
 
-    Intent mPrintServiceIntent; 
+    Intent mPrintServiceIntent;
 
 
-  
-   
-
-    public class StartPrint extends Activity {
+    private class StartPrint   {
         public void onStart() {
            Intent intent = new Intent();
       intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-        startService(intent);//启动打印服务
-        bindService(intent, connService, Context.BIND_AUTO_CREATE);
+
+        Activity activity = new Activity();
+        activity.startService(intent);//启动打印服务
+        activity.bindService(intent, connService, Context.BIND_AUTO_CREATE);
  
             //  m_voltage = (int) (65+19*voltage_level/100); //放大十倍
             //   Log.e("wbw","m_voltage  = " + m_voltage );
