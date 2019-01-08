@@ -288,11 +288,11 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
                 woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
                             callbackContext.success("print  success");
                 return true;
-            } catch (RemoteException e) {
-                e.printStackTrace();
-  callbackContext.error(" fail,  " +  e.printStackTrace());
-                return false ;
-            }
+            } catch (Exception e) {
+            String errMsg = e.getMessage();  
+            callbackContext.error(errMsg);
+            return false ;
+        }
         }
    //This will send data to bluetooth printer
     boolean printText(CallbackContext callbackContext , JSONArray args) throws IOException {
