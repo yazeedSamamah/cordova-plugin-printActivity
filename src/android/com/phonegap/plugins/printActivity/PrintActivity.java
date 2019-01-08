@@ -85,6 +85,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
+import android.app.Activity;
 public class PrintActivity extends CordovaPlugin {
         
       public String tag = "PrintActivity";
@@ -232,12 +233,10 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
            }
             return true;
         }else if(action.equals("testPrint")){
-            Intent intent = new Intent();
-        intent.setPackage("woyou.aidlservice.jiuiv5");
-        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-    //    startService(intent);//启动打印服务
-        bindService(intent, connService, Context.BIND_AUTO_CREATE);
 
+ MainActivity m = new MainActivity();
+ m.startPrint();
+ 
         try {
                 woyouService.printerSelfChecking(callback);//这里使用的AIDL方式打印
                 return true;
@@ -252,7 +251,15 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
       return false;
     }
 
-    
+    public class MainActivity extends Activity {
+          public void startPrint() {
+        Intent intent = new Intent();
+        intent.setPackage("woyou.aidlservice.jiuiv5");
+        intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
+        startService(intent);//启动打印服务
+        bindService(intent, connService, Context.BIND_AUTO_CREATE);
+    }
+     }
     //private Pos pos;
 
     int IsWorking = 0;
