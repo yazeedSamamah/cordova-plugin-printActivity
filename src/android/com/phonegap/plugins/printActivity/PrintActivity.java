@@ -261,8 +261,8 @@ BindService (intent, connService, Context. BIND_AUTO_CREATE);
            Intent intent = new Intent();
       intent.setPackage("woyou.aidlservice.jiuiv5");
         intent.setAction("woyou.aidlservice.jiuiv5.IWoyouService");
-        activity.startService(intent);//启动打印服务
-        activity.bindService(intent, connService, Context.BIND_AUTO_CREATE);
+        startService(intent);//启动打印服务
+        bindService(intent, connService, Context.BIND_AUTO_CREATE);
  
             //  m_voltage = (int) (65+19*voltage_level/100); //放大十倍
             //   Log.e("wbw","m_voltage  = " + m_voltage );
